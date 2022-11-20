@@ -21,63 +21,64 @@ import javax.swing.JTextField;
  *
  * @author user
  */
-public class Login {
+
+public class MenuKurir {
     public static void main(String[] args) {
-        new Login();
+        new MenuKurir();
     }
     
-    public Login(){
-        Font font1 = new Font("Serif", Font.BOLD, 20);
+    public MenuKurir(){
+        Font font1 = new Font("Serif", Font.BOLD, 15);
         
-        JFrame frame = new JFrame("Main Login");
-        frame.setSize(600, 400);
+        JFrame frame = new JFrame("Menu Kurir");
+        frame.setSize(620, 300);
         frame.setLocationRelativeTo(null);
         frame.getContentPane().setBackground(Color.lightGray);
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         
-        JLabel judul = new JLabel("Main Login");
-        judul.setBounds(175, 10, 400, 60);
-        judul.setFont(new Font("Serif", Font.BOLD, 45));
+        JLabel judul = new JLabel("Welcome Kurir");
+        judul.setBounds(120, 10, 400, 60);
+        judul.setFont(new Font("Serif", Font.BOLD, 50));
         
-        JButton admin = new JButton("Admin");
-        admin.setBounds(210, 130, 150, 50);
-        admin.setFont(font1);
-        admin.setCursor(new Cursor(Cursor.HAND_CURSOR));
-        admin.addActionListener(new ActionListener(){
+        JButton terimaP = new JButton("Terima Pesanan");
+        terimaP.setBounds(30, 130, 150, 50);
+        terimaP.setFont(font1);
+        terimaP.setCursor(new Cursor(Cursor.HAND_CURSOR));
+        terimaP.addActionListener(new ActionListener(){
             @Override
             public void actionPerformed(ActionEvent ae) {
                 frame.dispose();
-                new MenuAdmin();
+                //
             }
         });
         
-        JButton client = new JButton("Client");
-        client.setBounds(210, 200, 150, 50);
-        client.setFont(font1);
-        client.setCursor(new Cursor(Cursor.HAND_CURSOR));
-        client.addActionListener(new ActionListener(){
+        JButton riwayatP = new JButton("History");
+        riwayatP.setBounds(220, 130, 150, 50);
+        riwayatP.setFont(font1);
+        riwayatP.setCursor(new Cursor(Cursor.HAND_CURSOR));
+        riwayatP.addActionListener(new ActionListener(){
             @Override
             public void actionPerformed(ActionEvent ae) {
                 frame.dispose();
-                new MenuClient();
+                //
             }
         });
         
-        JButton kurir = new JButton("Kurir");
-        kurir.setBounds(210, 270, 150, 50);
-        kurir.setFont(font1);
-        kurir.setCursor(new Cursor(Cursor.HAND_CURSOR));
-        kurir.addActionListener(new ActionListener(){
+        JButton konfirmasi = new JButton("Konfirmasi");
+        konfirmasi.setBounds(410, 130, 150, 50);
+        konfirmasi.setFont(font1);
+        konfirmasi.setCursor(new Cursor(Cursor.HAND_CURSOR));
+        konfirmasi.addActionListener(new ActionListener(){
             @Override
             public void actionPerformed(ActionEvent ae) {
                 frame.dispose();
-                new MenuKurir();
+                //
             }
         });
         
-        frame.add(kurir);
-        frame.add(client);
-        frame.add(admin);
+        frame.add(konfirmasi);
+        frame.add(riwayatP);
+        frame.add(terimaP);
         frame.add(judul);
         frame.setLayout(null);
         frame.setVisible(true);

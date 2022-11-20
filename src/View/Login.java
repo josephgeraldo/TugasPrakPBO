@@ -10,6 +10,7 @@ import java.awt.Cursor;
 import java.awt.Font;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
@@ -28,41 +29,56 @@ public class Login {
     public Login(){
         Font font1 = new Font("Serif", Font.BOLD, 20);
         
-        JFrame frame = new JFrame("Login");
-        frame.setSize(600, 310);
+        JFrame frame = new JFrame("Main Login");
+        frame.setSize(600, 400);
         frame.setLocationRelativeTo(null);
+        frame.getContentPane().setBackground(Color.lightGray);
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         
-        JLabel judul = new JLabel("Login");
-        judul.setBounds(230, 10, 400, 60);
+        JLabel judul = new JLabel("Main Login");
+        judul.setBounds(175, 10, 400, 60);
         judul.setFont(new Font("Serif", Font.BOLD, 45));
         
-        JLabel usernameLabel = new JLabel("Username");
-        usernameLabel.setBounds(30, 100, 200, 30);
-        usernameLabel.setFont(font1);
+        JButton admin = new JButton("Admin");
+        admin.setBounds(210, 130, 150, 50);
+        admin.setFont(font1);
+        admin.setCursor(new Cursor(Cursor.HAND_CURSOR));
+        admin.addActionListener(new ActionListener(){
+            @Override
+            public void actionPerformed(ActionEvent ae) {
+                frame.dispose();
+                new MenuAdmin();
+            }
+        });
         
-        JTextField user = new JTextField();
-        user.setBounds(150, 100, 300, 30);
-        user.setFont(font1);
+        JButton client = new JButton("Client");
+        client.setBounds(210, 200, 150, 50);
+        client.setFont(font1);
+        client.setCursor(new Cursor(Cursor.HAND_CURSOR));
+        client.addActionListener(new ActionListener(){
+            @Override
+            public void actionPerformed(ActionEvent ae) {
+                frame.dispose();
+                //
+            }
+        });
         
-        JLabel passwordLabel = new JLabel("Password");
-        passwordLabel.setBounds(30, 150, 200, 30);
-        passwordLabel.setFont(font1);
+        JButton kurir = new JButton("Kurir");
+        kurir.setBounds(210, 270, 150, 50);
+        kurir.setFont(font1);
+        kurir.setCursor(new Cursor(Cursor.HAND_CURSOR));
+        kurir.addActionListener(new ActionListener(){
+            @Override
+            public void actionPerformed(ActionEvent ae) {
+                frame.dispose();
+                //
+            }
+        });
         
-        JTextField password = new JTextField();
-        password.setBounds(150, 150, 300, 30);
-        password.setFont(font1);
-        
-        JButton login = new JButton("LOGIN");
-        login.setBounds(235, 210, 100, 30);
-        login.setFont(new Font("Serif", Font.PLAIN, 20));
-                
+        frame.add(kurir);
+        frame.add(client);
+        frame.add(admin);
         frame.add(judul);
-        frame.add(usernameLabel);
-        frame.add(user);
-        frame.add(passwordLabel);
-        frame.add(password);
-        frame.add(login);
         frame.setLayout(null);
         frame.setVisible(true);
     }

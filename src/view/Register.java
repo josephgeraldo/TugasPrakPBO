@@ -16,7 +16,7 @@ import javax.swing.JRadioButton;
 
 public class Register {
 
-    String tipe = "null";
+    String tipe = " ";
 
     public static void main(String[] args) {
         new Register();

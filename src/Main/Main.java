@@ -15,6 +15,6 @@ public class Main {
         new Main();
     }
     public Main(){
-        new BlacklistUser();
+        new ChooseLogin();
     }
 }

@@ -21,10 +21,18 @@ import javax.swing.JTextField;
  */
 
 public class MenuAdmin {
+    
+    public static MenuAdmin mInstance;
+    public static MenuAdmin getInstance() {
+        if(mInstance == null) 
+            mInstance = new MenuAdmin();
+        return mInstance;
+    }
+    JFrame frame;
     public MenuAdmin(){
         Font font1 = new Font("Serif", Font.BOLD, 15);
         
-        JFrame frame = new JFrame("Menu Admin");
+        frame = new JFrame("Menu Admin");
         frame.setSize(620, 400);
         frame.setLocationRelativeTo(null);
         frame.getContentPane().setBackground(Color.lightGray);
@@ -53,8 +61,8 @@ public class MenuAdmin {
         blacklist.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent ae) {
+                new BlacklistUser();
                 frame.dispose();
-                //
             }
         });
 
@@ -65,8 +73,8 @@ public class MenuAdmin {
         totalP.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent ae) {
+                new TotalPesanan();
                 frame.dispose();
-                //
             }
         });
 
@@ -102,5 +110,8 @@ public class MenuAdmin {
         frame.add(judul);
         frame.setLayout(null);
         frame.setVisible(true);
+    }
+    public JFrame getFrameInstance() {
+        return frame;
     }
 }

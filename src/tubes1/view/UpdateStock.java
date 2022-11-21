@@ -63,6 +63,13 @@ public class UpdateStock {
         JButton update = new JButton("Update");
         update.setBounds(200, 250, 180, 50);
         update.setFont(font1);
+        update.addActionListener(new ActionListener(){
+            @Override
+            public void actionPerformed(ActionEvent ae) {
+                frame.dispose();
+                
+            } 
+        });
         
         JButton back = new JButton("Back");
         back.setBounds(30, 290, 80, 30);

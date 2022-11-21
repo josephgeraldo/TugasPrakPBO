@@ -3,14 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package View;
-
-/**
- *
- * @author Cent
- */
-public class Main {
-    public static void main(String[] args) {
-        new Login();
-    }
+package tubes1.controler;
+public class RegisController {
+    
 }

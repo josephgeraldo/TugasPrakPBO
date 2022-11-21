@@ -2,11 +2,11 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
  */
-package tubes1.controler;
+package controler;
 
 import java.sql.ResultSet;
 import java.sql.SQLException;
-import tubes1.model.user;
+import model.user;
 
 public class Login {
 

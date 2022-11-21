@@ -2,7 +2,7 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
  */
-package tubes1.view;
+package view;
 
 import java.awt.Cursor;
 import java.awt.Font;
@@ -22,8 +22,8 @@ import javax.swing.JLabel;
 import javax.swing.JOptionPane;
 import javax.swing.JPasswordField;
 import javax.swing.JTextField;
-import tubes1.controler.*;
-import tubes1.model.Etalase;
+import controler.*;
+import model.Etalase;
 
 /**
  *

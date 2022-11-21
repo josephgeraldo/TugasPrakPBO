@@ -2,11 +2,11 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
  */
-package tubes1.controler;
+package controler;
 
-import tubes1.controler.DatabaseHandler;
-import tubes1.model.SingeltonProduk;
-import tubes1.model.produk;
+import controler.DatabaseHandler;
+import model.SingeltonProduk;
+import model.produk;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 /**

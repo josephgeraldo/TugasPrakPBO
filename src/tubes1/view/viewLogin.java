@@ -30,7 +30,7 @@ public class viewLogin {
         frame.setLocationRelativeTo(null);
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         Font font1 = new Font("Serif", Font.PLAIN, 20);
-
+        
         //label judul
         JLabel judul = new JLabel("Login");
         judul.setBounds(240, 5, 500, 60);
@@ -40,7 +40,7 @@ public class viewLogin {
         JLabel userNameLabel = new JLabel("Username");
         userNameLabel.setBounds(100, 100, 90, 40);
         userNameLabel.setFont(font1);
-
+        
         //textfield username
         JTextField tfUserName = new JTextField();
         tfUserName.setBounds(240, 105, 240, 30);

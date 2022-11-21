@@ -51,7 +51,7 @@ public class ChooseLogin implements ActionListener{
         buttonRegister.addActionListener(this);
         buttonRegister.setCursor(new Cursor(Cursor.HAND_CURSOR));
         
-        JButton buttonBack = new JButton("Kembali");
+        JButton buttonBack = new JButton("Exit");
         buttonBack.setBounds(170, 320, 140, 50);
         buttonBack.setFont(font1);
         buttonBack.setCursor(new Cursor(Cursor.HAND_CURSOR));
@@ -74,15 +74,18 @@ public class ChooseLogin implements ActionListener{
         String command = e.getActionCommand();
         switch(command) {
             case "Admin": 
+                frame.setVisible(false);
                 new viewLogin("admin");
                 break;
             case "Client":
+                frame.setVisible(false);
                 new viewLogin("customers");
                 break;
             case "Kurir":
+                frame.setVisible(false);
                 new viewLogin("kurir");
                 break;
-            case "Kembali":
+            case "Exit":
                 frame.dispose();
                 JOptionPane.showMessageDialog(null, "Terima Kasih telah menggunakan Aplikasi Kami");
                 break;

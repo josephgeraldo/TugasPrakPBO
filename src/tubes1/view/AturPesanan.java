@@ -37,6 +37,7 @@ public class AturPesanan {
         textField3.setBounds(135,100, 140, 35);
         button = new JButton("Submit");
         button.setBounds(115,170,80,35);
+        button.setCursor(new Cursor(Cursor.HAND_CURSOR));
         
         button.addActionListener(new ActionListener() {
             @Override

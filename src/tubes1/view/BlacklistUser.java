@@ -31,6 +31,8 @@ public class BlacklistUser {
         button1.setBounds(108,60,90,35);
         button2 = new JButton("Show List");
         button2.setBounds(108,100,90,20);
+        button1.setCursor(new Cursor(Cursor.HAND_CURSOR));
+        button2.setCursor(new Cursor(Cursor.HAND_CURSOR));
         
         button1.addActionListener(new ActionListener() {
             @Override

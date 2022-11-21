@@ -64,7 +64,7 @@ public class viewLogin {
             public void actionPerformed(ActionEvent ae) {
                 String result = controller.LoginController(tipeUser,tfUserName.getText(),pass.getText());
                 if(result.equals("Login Berhasil!")){
-                    frame.dispose();
+                    frame.setVisible(false);
                     JOptionPane.showMessageDialog(null,result);
                     //masukin tujuan dibawah
                     if (tipeUser.equals("customers")) {
@@ -94,8 +94,8 @@ public class viewLogin {
         back.addActionListener(new ActionListener(){
             @Override
             public void actionPerformed(ActionEvent ae) {
+                frame.setVisible(false);
                 new ChooseLogin();
-                frame.dispose();
             } 
         });
 

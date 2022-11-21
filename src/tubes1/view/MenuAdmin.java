@@ -49,8 +49,8 @@ public class MenuAdmin {
         updateBarang.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent ae) {
-                frame.dispose();
-                //
+                frame.setVisible(false);
+                new UpdateBarang();
             }
         });
 
@@ -61,8 +61,8 @@ public class MenuAdmin {
         blacklist.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent ae) {
+                frame.setVisible(false);
                 new BlacklistUser();
-                frame.dispose();
             }
         });
 
@@ -73,8 +73,8 @@ public class MenuAdmin {
         totalP.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent ae) {
+                frame.setVisible(false);
                 new TotalPesanan();
-                frame.dispose();
             }
         });
 
@@ -85,8 +85,8 @@ public class MenuAdmin {
         pesanan.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent ae) {
+                frame.setVisible(false);
                 new AturPesanan();
-                frame.dispose();
             }
         });
 
@@ -97,7 +97,7 @@ public class MenuAdmin {
         stock.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent ae) {
-                frame.dispose();
+                frame.setVisible(false);
                 //
             }
         });

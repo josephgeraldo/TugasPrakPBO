@@ -33,6 +33,7 @@ public class TotalPesanan {
         rButton2.setBackground(Color.lightGray);
         button = new JButton("Submit");
         button.setBounds(20,90,90,35);
+        button.setCursor(new Cursor(Cursor.HAND_CURSOR));
         
         button.addActionListener(new ActionListener() {
             @Override

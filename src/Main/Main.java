@@ -5,7 +5,7 @@
  */
 package Main;
 
-import view.ChooseLogin;
+import view.*;
 /**
  *
  * @author User
@@ -15,6 +15,6 @@ public class Main {
         new Main();
     }
     public Main(){
-        new ChooseLogin();
+        new BlacklistUser();
     }
 }

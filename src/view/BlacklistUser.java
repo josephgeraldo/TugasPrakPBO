@@ -5,9 +5,18 @@
  */
 package view;
 
+import controler.DatabaseHandler;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.sql.Statement;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.swing.*;
 
 /**
@@ -37,14 +46,37 @@ public class BlacklistUser {
         button1.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent ae){
-                //
+                try {
+                    Class.forName("com.mysql.cj.jdbc.Driver");
+                    String blackList = "Blacklist";
+                    Connection con = DriverManager.getConnection("jdbc:mysql://localhost/tokokue","root","");
+                    String sql = "UPDATE user SET tipe = '%"+blackList+"%' where username = '%"+textField.getText()+"%'";
+                    PreparedStatement stm = con.prepareStatement(sql);
+                    stm.executeUpdate(sql);
+                    JOptionPane.showMessageDialog(null, "Username Berhasil Di Blacklist");
+                    con.close();
+                }catch (SQLException se){
+                    se.printStackTrace();
+                } catch (ClassNotFoundException ex) {
+                    Logger.getLogger(AturPesanan.class.getName()).log(Level.SEVERE, null, ex);
+                }
             }
         });
         
         button2.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent ae){
-                //
+                DatabaseHandler conn = new DatabaseHandler();
+                conn.connect();
+                try{
+                    java.sql.Statement stat = conn.con.createStatement();
+                    ResultSet result = stat.executeQuery("select * from user");
+                    while(result.next()){
+                        label.setText(result.getString("username"));
+                    }
+                }catch(SQLException e) {
+                    e.printStackTrace();
+                }
             }
         });
         

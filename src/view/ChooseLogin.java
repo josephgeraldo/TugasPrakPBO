@@ -68,8 +68,6 @@ public class ChooseLogin implements ActionListener{
         frame.add(buttonBack);
         frame.setLayout(null);
         frame.setVisible(true);
-        
-        
     }
 
     @Override

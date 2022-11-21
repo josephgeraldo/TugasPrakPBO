@@ -7,6 +7,13 @@ package view;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.sql.Statement;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.swing.*;
 
 /**
@@ -39,9 +46,22 @@ public class TotalPesanan {
             @Override
             public void actionPerformed(ActionEvent ae){
                 if(rButton1.isSelected()){
-                    //print total perhari
-                }
-                else{
+                    try{
+                        Class.forName("com.mysql.cj.jdbc.Driver");
+                        Connection con = DriverManager.getConnection("jdbc:mysql://localhost/tokokue","root","");
+                        Statement stm = con.createStatement();
+                        String sql = "SELECT COUNT(id_pesanan) AS total from pesanan";
+                        ResultSet rs = stm.executeQuery(sql);
+                        int id = rs.getInt("total");
+                        JOptionPane.showMessageDialog(null, "Total : "+id);
+                        con.close();
+                    }catch (SQLException se){
+                        se.printStackTrace();
+                    } catch (ClassNotFoundException ex) {
+                        Logger.getLogger(AturPesanan.class.getName()).log(Level.SEVERE, null, ex);
+                    }
+                    
+                }else{
                     //print data perminggu
                 }
             }

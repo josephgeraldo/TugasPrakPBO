@@ -94,7 +94,20 @@ public class MenuAdmin {
                 //
             }
         });
-
+        
+        JButton back = new JButton("Back");
+        back.setBounds(10, 320, 80, 30);
+        back.setFont(font1);
+        back.setCursor(new Cursor(Cursor.HAND_CURSOR));
+        back.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent ae) {
+                frame.dispose();
+                new Login();
+            }
+        });
+        
+        frame.add(back);
         frame.add(stock);
         frame.add(pesanan);
         frame.add(totalP);

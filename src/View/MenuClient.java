@@ -107,6 +107,19 @@ public class MenuClient {
             }
         });
         
+        JButton back = new JButton("Back");
+        back.setBounds(10, 370, 80, 30);
+        back.setFont(font1);
+        back.setCursor(new Cursor(Cursor.HAND_CURSOR));
+        back.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent ae) {
+                frame.dispose();
+                new Login();
+            }
+        });
+        
+        frame.add(back);
         frame.add(keranjang);
         frame.add(history);
         frame.add(statusP);

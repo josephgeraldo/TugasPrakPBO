@@ -11,10 +11,27 @@ import java.util.ArrayList;
  * @author user
  */
 public class pesanan {
+    int id_pesanan;
     int pesanan;
     statusPembayaran statusPembayaran;
     statusPengiriman statusPengiriman;
     ArrayList<produk> produk;
+
+    public pesanan(int id_pesanan, int pesanan, statusPembayaran statusPembayaran, statusPengiriman statusPengiriman, ArrayList<produk> produk) {
+        this.id_pesanan = id_pesanan;
+        this.pesanan = pesanan;
+        this.statusPembayaran = statusPembayaran;
+        this.statusPengiriman = statusPengiriman;
+        this.produk = produk;
+    }
+
+    public int getId_pesanan() {
+        return id_pesanan;
+    }
+
+    public void setId_pesanan(int id_pesanan) {
+        this.id_pesanan = id_pesanan;
+    }
 
     public int getPesanan() {
         return pesanan;
@@ -45,13 +62,6 @@ public class pesanan {
     }
 
     public void setProduk(ArrayList<produk> produk) {
-        this.produk = produk;
-    }
-
-    public pesanan(int pesanan, statusPembayaran statusPembayaran, statusPengiriman statusPengiriman, ArrayList<produk> produk) {
-        this.pesanan = pesanan;
-        this.statusPembayaran = statusPembayaran;
-        this.statusPengiriman = statusPengiriman;
         this.produk = produk;
     }
 }

@@ -91,7 +91,7 @@ public class ChooseLogin implements ActionListener{
 
             case "Kembali":
                 frame.dispose();
-                new MenuClient();
+                new Register();
                 break;
             default: 
                 break;

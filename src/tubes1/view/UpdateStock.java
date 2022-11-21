@@ -72,7 +72,7 @@ public class UpdateStock {
             @Override
             public void actionPerformed(ActionEvent ae) {
                 frame.dispose();
-                new ChooseLogin();
+                new MenuAdmin();
             } 
         });
         

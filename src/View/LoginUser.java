@@ -14,6 +14,7 @@ import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
+import javax.swing.JOptionPane;
 import javax.swing.JTextField;
 
 /**
@@ -58,9 +59,23 @@ public class LoginUser {
         login.addActionListener(new ActionListener(){
             @Override
             public void actionPerformed(ActionEvent ae) {
-                frame.dispose();
-                //
-            }
+//                String result = controller.LoginController(tipeUser,tfUserName.getText(),pass.getText());
+//                if(result.equals("Login Berhasil!")){
+//                    frame.dispose();
+//                    JOptionPane.showMessageDialog(null,result);
+//                    //masukin tujuan dibawah
+//                    
+//                }else if(result.equals("Password Salah!")){
+//                    JOptionPane.showMessageDialog(null,result);
+//                    pass.setText("");
+//                    pass.requestFocus();
+//                }else{
+//                    JOptionPane.showMessageDialog(null,result);
+//                    tfUserName.setText("");
+//                    pass.setText("");
+//                    tfUserName.requestFocus();
+//                }
+            }  
         });
         
         frame.add(login);

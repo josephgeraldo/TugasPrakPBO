@@ -16,17 +16,17 @@ public class Register {
 
     public Register() {
         JFrame frm = new JFrame("Registrasi Client");
-        frm.setSize(500, 400);
+        frm.setSize(600, 700);
         frm.setLocationRelativeTo(null);
         frm.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        Font font_1 = new Font("Serif", Font.PLAIN, 15);
+        Font font_1 = new Font("Serif", Font.PLAIN, 12);
 
         JLabel judul = new JLabel("Registrasi Client");
         judul.setBounds(200, 10, 300, 60);
         judul.setFont(new Font("Serif", Font.BOLD, 20));
 
         JLabel labelUsername = new JLabel("Username");
-        labelUsername.setBounds(100, 100, 90, 50);
+        labelUsername.setBounds(100, 135, 90, 50);
         labelUsername.setFont(font_1);
 
         JTextField fieldUsername = new JTextField();
@@ -49,7 +49,7 @@ public class Register {
         fieldTelepon.setBounds(240, 225, 240, 30);
         fieldTelepon.setFont(font_1);
 
-        JLabel labelNamaLengkap = new JLabel("Nama Lengkap: ");
+        JLabel labelNamaLengkap = new JLabel("Nama Lengkap");
         labelNamaLengkap.setBounds(100, 100, 90, 40);
         labelNamaLengkap.setFont(font_1);
 

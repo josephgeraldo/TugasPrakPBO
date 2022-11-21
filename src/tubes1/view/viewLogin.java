@@ -31,6 +31,8 @@ public class viewLogin {
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         Font font1 = new Font("Serif", Font.PLAIN, 20);
         
+        
+        
         //label judul
         JLabel judul = new JLabel("Login");
         judul.setBounds(240, 5, 500, 60);

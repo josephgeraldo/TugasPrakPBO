@@ -42,9 +42,9 @@ public class UpdateStock {
         judul.setBounds(240, 5, 500, 60);
         judul.setFont(new Font("Serif", Font.BOLD, 35));
         
-        JLabel stockLabel = new JLabel("Username");
-        stockLabel.setBounds(100, 100, 90, 40);
-        stockLabel.setFont(font1);
+        JLabel barangLabel = new JLabel("Barang");
+        barangLabel.setBounds(100, 100, 90, 40);
+        barangLabel.setFont(font1);
         
         frame.add(judul);
         frame.setLayout(null);

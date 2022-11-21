@@ -23,10 +23,6 @@ import javax.swing.JTextField;
  */
 
 public class MenuKurir {
-    public static void main(String[] args) {
-        new MenuKurir();
-    }
-    
     public MenuKurir(){
         Font font1 = new Font("Serif", Font.BOLD, 15);
         

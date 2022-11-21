@@ -22,10 +22,6 @@ import javax.swing.JTextField;
  * @author user
  */
 public class MenuClient {
-    public static void main(String[] args) {
-        new MenuClient();
-    }
-    
     public MenuClient(){
         Font font1 = new Font("Serif", Font.BOLD, 15);
         

@@ -63,7 +63,6 @@ public class Register {
         fieldNamaLengkap.setFont(font_1);
 
         JLabel labelAlamatLengkap = new JLabel("Alamat Lengkap: ");
-        labelAlamatLengkap.setBounds(100, 260, 90, 40);
         labelAlamatLengkap.setBounds(100, 280, 90, 40);
         labelAlamatLengkap.setFont(font_1);
 
@@ -115,7 +114,6 @@ public class Register {
         back.setBounds(100, 510, 180, 50);
         back.setFont(font_1);
         back.setCursor(new Cursor(Cursor.HAND_CURSOR));
-        
         back.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent ae) {

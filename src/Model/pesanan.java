@@ -12,14 +12,12 @@ import java.util.ArrayList;
  */
 public class pesanan {
     int id_pesanan;
-    int pesanan;
     statusPembayaran statusPembayaran;
     statusPengiriman statusPengiriman;
     ArrayList<produk> produk;
 
-    public pesanan(int id_pesanan, int pesanan, statusPembayaran statusPembayaran, statusPengiriman statusPengiriman, ArrayList<produk> produk) {
+    public pesanan(int id_pesanan, statusPembayaran statusPembayaran, statusPengiriman statusPengiriman, ArrayList<produk> produk) {
         this.id_pesanan = id_pesanan;
-        this.pesanan = pesanan;
         this.statusPembayaran = statusPembayaran;
         this.statusPengiriman = statusPengiriman;
         this.produk = produk;
@@ -31,14 +29,6 @@ public class pesanan {
 
     public void setId_pesanan(int id_pesanan) {
         this.id_pesanan = id_pesanan;
-    }
-
-    public int getPesanan() {
-        return pesanan;
-    }
-
-    public void setPesanan(int pesanan) {
-        this.pesanan = pesanan;
     }
 
     public statusPembayaran getStatusPembayaran() {
@@ -64,4 +54,6 @@ public class pesanan {
     public void setProduk(ArrayList<produk> produk) {
         this.produk = produk;
     }
+
+    
 }

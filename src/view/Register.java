@@ -1,4 +1,4 @@
-package tubes1.view;
+package view;
 
 import java.awt.Cursor;
 import java.awt.Font;
@@ -10,7 +10,7 @@ import javax.swing.JLabel;
 import javax.swing.JOptionPane;
 import javax.swing.JPasswordField;
 import javax.swing.JTextField;
-import tubes1.controler.RegisController;
+import controler.RegisController;
 
 public class Register {
 

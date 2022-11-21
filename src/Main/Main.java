@@ -5,7 +5,7 @@
  */
 package Main;
 
-import tubes1.view.ChooseLogin;
+import view.ChooseLogin;
 /**
  *
  * @author User

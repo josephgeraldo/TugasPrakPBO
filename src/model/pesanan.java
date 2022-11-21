@@ -2,26 +2,68 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
  */
-package tubes1.model;
+package model;
+
+import java.util.ArrayList;
 
 /**
  *
  * @author user
  */
-public class konsumen extends user {
-    int id_user;
+public class pesanan extends user {
+    int id_pesanan;
+    int jumlah;
+    statusPembayaran statusPembayaran;
+    statusPengiriman statusPengiriman;
+    ArrayList<produk> produk;
 
-    public konsumen(int id_user, int user, String username, String password, String no_telp, String nama_lengkap, String alamat_lengkap, String kota, String provinsi, String kode_post) {
+    public pesanan(int id_pesanan, int jumlah, statusPembayaran statusPembayaran, statusPengiriman statusPengiriman, ArrayList<produk> produk, int user, String username, String password, String no_telp, String nama_lengkap, String alamat_lengkap, String kota, String provinsi, String kode_post) {
         super(user, username, password, no_telp, nama_lengkap, alamat_lengkap, kota, provinsi, kode_post);
-        this.id_user = id_user;
+        this.id_pesanan = id_pesanan;
+        this.jumlah = jumlah;
+        this.statusPembayaran = statusPembayaran;
+        this.statusPengiriman = statusPengiriman;
+        this.produk = produk;
     }
 
-    public int getId_user() {
-        return id_user;
+    public int getId_pesanan() {
+        return id_pesanan;
     }
 
-    public void setId_user(int id_user) {
-        this.id_user = id_user;
+    public void setId_pesanan(int id_pesanan) {
+        this.id_pesanan = id_pesanan;
+    }
+
+    public int getJumlah() {
+        return jumlah;
+    }
+
+    public void setJumlah(int jumlah) {
+        this.jumlah = jumlah;
+    }
+
+    public statusPembayaran getStatusPembayaran() {
+        return statusPembayaran;
+    }
+
+    public void setStatusPembayaran(statusPembayaran statusPembayaran) {
+        this.statusPembayaran = statusPembayaran;
+    }
+
+    public statusPengiriman getStatusPengiriman() {
+        return statusPengiriman;
+    }
+
+    public void setStatusPengiriman(statusPengiriman statusPengiriman) {
+        this.statusPengiriman = statusPengiriman;
+    }
+
+    public ArrayList<produk> getProduk() {
+        return produk;
+    }
+
+    public void setProduk(ArrayList<produk> produk) {
+        this.produk = produk;
     }
 
     public int getUser() {
@@ -95,5 +137,6 @@ public class konsumen extends user {
     public void setKode_post(String kode_post) {
         this.kode_post = kode_post;
     }
+
     
 }

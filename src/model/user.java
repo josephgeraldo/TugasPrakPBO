@@ -2,36 +2,33 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
  */
-package tubes1.model;
+package model;
 
 /**
  *
  * @author user
  */
-public class kurir extends user{
-    int id_kurir;
-    int max_berat;
+public class user {
+    int user;
+    String username;
+    String password;
+    String no_telp;
+    String nama_lengkap;
+    String alamat_lengkap;
+    String kota;
+    String provinsi;
+    String kode_post;
 
-    public kurir(int id_kurir, int max_berat, int user, String username, String password, String no_telp, String nama_lengkap, String alamat_lengkap, String kota, String provinsi, String kode_post) {
-        super(user, username, password, no_telp, nama_lengkap, alamat_lengkap, kota, provinsi, kode_post);
-        this.id_kurir = id_kurir;
-        this.max_berat = max_berat;
-    }
-
-    public int getId_kurir() {
-        return id_kurir;
-    }
-
-    public void setId_kurir(int id_kurir) {
-        this.id_kurir = id_kurir;
-    }
-
-    public int getMax_berat() {
-        return max_berat;
-    }
-
-    public void setMax_berat(int max_berat) {
-        this.max_berat = max_berat;
+    public user(int user, String username, String password, String no_telp, String nama_lengkap, String alamat_lengkap, String kota, String provinsi, String kode_post) {
+        this.user = user;
+        this.username = username;
+        this.password = password;
+        this.no_telp = no_telp;
+        this.nama_lengkap = nama_lengkap;
+        this.alamat_lengkap = alamat_lengkap;
+        this.kota = kota;
+        this.provinsi = provinsi;
+        this.kode_post = kode_post;
     }
 
     public int getUser() {
@@ -105,6 +102,4 @@ public class kurir extends user{
     public void setKode_post(String kode_post) {
         this.kode_post = kode_post;
     }
-      
-    
 }

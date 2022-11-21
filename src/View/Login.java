@@ -76,8 +76,6 @@ public class Login implements ActionListener{
                 frame.dispose();
                 new LoginUser("kurir");
                 break;
-            case "Kembali":
-                break;
             default: 
                 break;
         }

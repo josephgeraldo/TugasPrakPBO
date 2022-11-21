@@ -95,6 +95,7 @@ public class MenuAdmin {
             public void actionPerformed(ActionEvent ae) {
                 frame.dispose();
                 new UpdateStock();
+                //
             }
         });
 

@@ -18,6 +18,7 @@ public class Login {
         try {
             java.sql.Statement stat = conn.con.createStatement();
             ResultSet result = stat.executeQuery("select * from " + "user" + " where username='" + userName + "'");
+            ResultSet result = stat.executeQuery("select * from " + "user" + " where username ='" + userName + "'");
             
             if (result.next()) {
 
@@ -27,6 +28,8 @@ public class Login {
                     }else{
                         return "Password Salah!";
                     }
+                }
+                    return "Password Salah!";
                 } else {
                     return "User tidak ditemukan!";
                 }

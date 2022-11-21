@@ -21,11 +21,11 @@ import javax.swing.JTextField;
  *
  * @author user
  */
-public class Login {
+public class Login implements ActionListener{
+    JFrame frame = new JFrame("Main Login");
     public Login(){
         Font font1 = new Font("Serif", Font.BOLD, 20);
         
-        JFrame frame = new JFrame("Main Login");
         frame.setSize(600, 400);
         frame.setLocationRelativeTo(null);
         frame.getContentPane().setBackground(Color.lightGray);
@@ -38,38 +38,20 @@ public class Login {
         JButton admin = new JButton("Admin");
         admin.setBounds(210, 130, 150, 50);
         admin.setFont(font1);
+        admin.addActionListener(this);
         admin.setCursor(new Cursor(Cursor.HAND_CURSOR));
-        admin.addActionListener(new ActionListener(){
-            @Override
-            public void actionPerformed(ActionEvent ae) {
-                frame.dispose();
-                new MenuAdmin();
-            }
-        });
         
         JButton client = new JButton("Client");
         client.setBounds(210, 200, 150, 50);
         client.setFont(font1);
+        client.addActionListener(this);
         client.setCursor(new Cursor(Cursor.HAND_CURSOR));
-        client.addActionListener(new ActionListener(){
-            @Override
-            public void actionPerformed(ActionEvent ae) {
-                frame.dispose();
-                new MenuClient();
-            }
-        });
         
         JButton kurir = new JButton("Kurir");
         kurir.setBounds(210, 270, 150, 50);
         kurir.setFont(font1);
+        kurir.addActionListener(this);
         kurir.setCursor(new Cursor(Cursor.HAND_CURSOR));
-        kurir.addActionListener(new ActionListener(){
-            @Override
-            public void actionPerformed(ActionEvent ae) {
-                frame.dispose();
-                new MenuKurir();
-            }
-        });
         
         frame.add(kurir);
         frame.add(client);
@@ -77,5 +59,27 @@ public class Login {
         frame.add(judul);
         frame.setLayout(null);
         frame.setVisible(true);
+    }
+    
+    public void actionPerformed(ActionEvent e) {
+        String command = e.getActionCommand();
+        switch(command) {
+            case "Admin": 
+                frame.dispose();
+                new LoginUser("admin");
+                break;
+            case "Client":
+                frame.dispose();
+                new LoginUser("client");
+                break;
+            case "Kurir":
+                frame.dispose();
+                new LoginUser("kurir");
+                break;
+            case "Kembali":
+                break;
+            default: 
+                break;
+        }
     }
 }

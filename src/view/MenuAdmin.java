@@ -46,7 +46,7 @@ public class MenuAdmin {
             @Override
             public void actionPerformed(ActionEvent ae) {
                 frame.dispose();
-                //
+                new UpdateBarang();
             }
         });
 
@@ -58,7 +58,7 @@ public class MenuAdmin {
             @Override
             public void actionPerformed(ActionEvent ae) {
                 frame.dispose();
-                //
+                new BlacklistUser();
             }
         });
 
@@ -70,7 +70,7 @@ public class MenuAdmin {
             @Override
             public void actionPerformed(ActionEvent ae) {
                 frame.dispose();
-                //
+                new TotalPesanan();
             }
         });
 
@@ -82,7 +82,7 @@ public class MenuAdmin {
             @Override
             public void actionPerformed(ActionEvent ae) {
                 frame.dispose();
-                //
+                new AturPesanan();
             }
         });
 
@@ -94,7 +94,7 @@ public class MenuAdmin {
             @Override
             public void actionPerformed(ActionEvent ae) {
                 frame.dispose();
-                //
+                new UpdateBarang();
             }
         });
 

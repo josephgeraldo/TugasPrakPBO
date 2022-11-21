@@ -11,6 +11,8 @@ import javax.swing.JOptionPane;
 import javax.swing.JPasswordField;
 import javax.swing.JTextField;
 import controler.RegisController;
+import javax.swing.ButtonGroup;
+import javax.swing.JRadioButton;
 
 public class Register {
 
@@ -93,6 +95,14 @@ public class Register {
         JTextField fieldKodePost = new JTextField();
         fieldKodePost.setBounds(240, 465, 240, 30);
         fieldKodePost.setFont(font_1);
+        
+        JLabel labelTipe = new JLabel("Tipe: ");
+        labelTipe.setBounds(100, 510, 90, 40);
+        labelTipe.setFont(font_1);
+        
+        JRadioButton tipe1 = new JRadioButton("1. Admin.\n2. Client\n3. Kurir");
+        tipe1.setBounds(250, 350, 100, 30);
+
 
         JButton submit = new JButton("Submit");
         submit.setBounds(300, 510, 180, 50);
@@ -101,10 +111,10 @@ public class Register {
         submit.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent ae) {
-                if (fieldNamaLengkap.getText().isEmpty() || fieldUsername.getText().isEmpty() || fieldKodePost.getText().equals("") || fieldTelepon.getText().isEmpty() || fieldAlamatLengkap.getText().isEmpty() || fieldKota.getText().isEmpty() || fieldProvinsi.getText().isEmpty()) {
+                if (fieldNamaLengkap.getText().isEmpty() || fieldUsername.getText().isEmpty() || fieldKodePost.getText().equals("") || fieldTelepon.getText().isEmpty() || fieldAlamatLengkap.getText().isEmpty() || fieldKota.getText().isEmpty() || fieldProvinsi.getText().isEmpty()|| tipe1.getText().isEmpty()) {
                     JOptionPane.showMessageDialog(null, "Semua kolom harus diisi!");
                 } else {
-                    JOptionPane.showMessageDialog(null, regis.register(fieldNamaLengkap.getText(), fieldUsername.getText(), fieldPass.getText(),fieldTelepon.getText(), fieldAlamatLengkap.getText(), fieldKota.getText(), fieldProvinsi.getText(), fieldKodePost.getText()));
+                    JOptionPane.showMessageDialog(null, regis.register(fieldNamaLengkap.getText(), fieldUsername.getText(), fieldPass.getText(), fieldTelepon.getText(), fieldAlamatLengkap.getText(), fieldKota.getText(), fieldProvinsi.getText(), fieldKodePost.getText(),tipe1.getText()));
                     frm.dispose();
                     new ChooseLogin();
                 }
@@ -138,6 +148,9 @@ public class Register {
         frm.add(fieldProvinsi);
         frm.add(labelKodePost);
         frm.add(fieldKodePost);
+        frm.add(tipe1);
+        frm.setLayout(null);
+        frm.setVisible(true);
         frm.add(submit);
         frm.add(back);
         frm.setLayout(null);

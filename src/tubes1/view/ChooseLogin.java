@@ -113,7 +113,7 @@ public class ChooseLogin implements ActionListener{
                 break;
             case "Kembali":
                 frame.dispose();
-                new Main.Main();
+                new ChooseLogin();
                 break;
             default: 
                 break;

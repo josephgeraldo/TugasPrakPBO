@@ -7,9 +7,9 @@ package tubes1.controler;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import tubes1.model.user;
-import tubes1.model.SingeltonProfile;
 
 public class Login {
+
     public String LoginController(String tipe, String userName, String pass) {
         DatabaseHandler conn = new DatabaseHandler();
         conn.connect();
@@ -17,21 +17,20 @@ public class Login {
         pass = Hasher.password(pass);
         try {
             java.sql.Statement stat = conn.con.createStatement();
-            ResultSet result = stat.executeQuery("select * from " + tipe + " where username='" + userName + "'");
-
+            ResultSet result = stat.executeQuery("select * from " + "user" + " where username='" + userName + "'");
+            
             if (result.next()) {
-                if (pass.equals(result.getString("pass"))) {
-                    if (tipe.equals("customers")) {
-                        
-                    } else if (tipe.equals("admin")) {
-                        
-                    } else if (tipe.equals("kurir")) {
-                        
+
+                if (pass.equals(result.getString("password"))) {
+                    if (tipe.equals(result.getString("tipe"))) {
+                        return "Login Berhasil!";
+                    }else{
+                        return "Password Salah!";
                     }
-                    return "Login Berhasil!";
                 } else {
-                    return "Password Salah!";
+                    return "User tidak ditemukan!";
                 }
+
             } else {
                 return "User tidak ditemukan!";
             }

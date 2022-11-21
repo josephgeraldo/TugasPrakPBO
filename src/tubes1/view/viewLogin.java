@@ -70,7 +70,7 @@ public class viewLogin {
                     frame.dispose();
                     JOptionPane.showMessageDialog(null,result);
                     //masukin tujuan dibawah
-                    if (tipeUser.equals("customers")) {
+                    if (tipeUser.equals("user")) {
                         new MenuClient();                        
                     } else if(tipeUser.equals("admin")) {
                         new MenuAdmin();

@@ -37,29 +37,48 @@ public class UpdateStock {
         frame.setSize(600, 380);
         frame.setLocationRelativeTo(null);
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        Font font1 = new Font("Serif", Font.PLAIN, 20);
+        Font font1 = new Font("Serif", Font.PLAIN, 15);
         
         JLabel judul = new JLabel("Update Stock");
-        judul.setBounds(240, 5, 500, 60);
+        judul.setBounds(200, 5, 500, 60);
         judul.setFont(new Font("Serif", Font.BOLD, 35));
         
-        JLabel barangLabel = new JLabel("Barang");
-        barangLabel.setBounds(100, 100, 90, 40);
+        JLabel barangLabel = new JLabel("Jenis Kue");
+        barangLabel.setBounds(80, 90, 90, 40);
         barangLabel.setFont(font1);
         
         String kategori[] = {"Kue Ultah", "Kue Lemper", "Kue Mayo"};
         JComboBox cbKategori = new JComboBox(kategori);
-        cbKategori.setBounds(180, 160, 310, 30);
+        cbKategori.setBounds(200, 100, 310, 30);
         cbKategori.setFont(font1);
         
         JLabel stockLabel = new JLabel("Tambah Stock");
-        stockLabel.setBounds(100, 200, 90, 40);
+        stockLabel.setBounds(80, 180, 90, 40);
         stockLabel.setFont(font1);
         
         JTextField stock = new JTextField();
-        stock.setBounds(180, 200, 240, 30);
+        stock.setBounds(200, 190, 240, 30);
         stock.setFont(font1);
         
+        JButton update = new JButton("Update");
+        update.setBounds(200, 250, 180, 50);
+        update.setFont(font1);
+        
+        JButton back = new JButton("Back");
+        back.setBounds(30, 290, 80, 30);
+        back.setFont(font1);
+        back.setCursor(new Cursor(Cursor.HAND_CURSOR));
+        back.addActionListener(new ActionListener(){
+            @Override
+            public void actionPerformed(ActionEvent ae) {
+                frame.dispose();
+                new ChooseLogin();
+            } 
+        });
+        
+        frame.add(update);
+        frame.add(back);
+        frame.add(barangLabel);
         frame.add(stock);
         frame.add(stockLabel);
         frame.add(cbKategori);

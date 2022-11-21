@@ -13,8 +13,8 @@ public class DatabaseHandler {
 
     public Connection con;
     private String driver = "com.mysql.cj.jdbc.Driver";
-    private String url = "jdbc:mysql://localhost/tokokue";
-//    private String url = "jdbc:mysql://localhost/tubes_pbo?serverTimezone=" + TimeZone.getDefault().getID();
+//    private String url = "jdbc:mysql://localhost/tokokue";
+    private String url = "jdbc:mysql://localhost/tokokue?serverTimezone=" + TimeZone.getDefault().getID();
     private String username = "root";
     private String password = "";
 

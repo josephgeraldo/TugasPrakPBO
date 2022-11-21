@@ -101,7 +101,7 @@ public class ChooseLogin implements ActionListener{
                 break;
             case "Client":
                 frame.dispose();
-                new viewLogin("customers");
+                new viewLogin("user");
                 break;
             case "Kurir":
                 frame.dispose();

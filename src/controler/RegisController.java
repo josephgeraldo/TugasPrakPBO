@@ -12,10 +12,10 @@ import java.sql.SQLException;
 
 public class RegisController {
 
-    public String register(String nama_lengkap, String username, String password, String no_telepon, String alamat_lengkap, String kota, String tipe, String provinsi, String kode_post) {
+    public String register(String nama_lengkap, String username, String password, String no_telepon, String alamat_lengkap, String kota, String provinsi, String kode_post, String tipe) {
         DatabaseHandler con = new DatabaseHandler();
         con.connect();
-        String query = "INSERT INTO user(nama_lengkap,username,password,no_telepon,alamat_lengkap,kota,tipe,provinsi,kode_post) VALUES(?,?,?,?,?,?,?,?,?)";
+        String query = "INSERT INTO user(nama_lengkap,username,password,no_telepon,alamat_lengkap,kota, provinsi,kode_post, tipe) VALUES(?,?,?,?,?,?,?,?,?)";
         try {
             MessageDigest m = MessageDigest.getInstance("MD5");
             m.update(password.getBytes());
@@ -36,10 +36,9 @@ public class RegisController {
             stmt.setString(4, no_telepon);
             stmt.setString(5, alamat_lengkap);
             stmt.setString(6, kota);
-            stmt.setString(7, tipe);
-            stmt.setString(8, provinsi);
-            stmt.setString(9, kode_post);
-            ;
+            stmt.setString(7, provinsi);
+            stmt.setString(8, kode_post);
+            stmt.setString(9, tipe);
             stmt.executeUpdate();
             return "Berhasil melakukan registrasi";
             

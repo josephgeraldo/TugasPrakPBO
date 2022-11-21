@@ -1,9 +1,8 @@
 /*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
+ * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
+ * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
  */
-package View;
+package tubes1.view;
 
 import java.awt.Color;
 import java.awt.Cursor;
@@ -23,6 +22,10 @@ import javax.swing.JTextField;
  */
 
 public class MenuKurir {
+    public static void main(String[] args) {
+        new MenuKurir();
+    }
+    
     public MenuKurir(){
         Font font1 = new Font("Serif", Font.BOLD, 15);
         
@@ -72,19 +75,6 @@ public class MenuKurir {
             }
         });
         
-        JButton back = new JButton("Back");
-        back.setBounds(10, 220, 80, 30);
-        back.setFont(font1);
-        back.setCursor(new Cursor(Cursor.HAND_CURSOR));
-        back.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent ae) {
-                frame.dispose();
-                new Login();
-            }
-        });
-        
-        frame.add(back);
         frame.add(konfirmasi);
         frame.add(riwayatP);
         frame.add(terimaP);

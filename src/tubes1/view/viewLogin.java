@@ -6,8 +6,16 @@ package tubes1.view;
 
 import java.awt.Cursor;
 import java.awt.Font;
+import java.awt.Image;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.awt.image.BufferedImage;
+import java.io.File;
+import java.io.IOException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import javax.imageio.ImageIO;
+import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
@@ -31,7 +39,16 @@ public class viewLogin {
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         Font font1 = new Font("Serif", Font.PLAIN, 20);
         
-        
+        //img
+        BufferedImage foto = null;
+        try {
+            foto = ImageIO.read(new File("F:\\ITHB\\Semester 3\\PrakPBO\\Tubes\\TugasPrakPBO2\\img\\cake.png"));
+        } catch (IOException ex) {
+            Logger.getLogger(viewLogin.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        Image fixedFoto = foto.getScaledInstance(60, 60, Image.SCALE_DEFAULT);
+        JLabel picFoto = new JLabel(new ImageIcon(fixedFoto));
+        picFoto.setBounds(70,1,100,60);
         
         //label judul
         JLabel judul = new JLabel("Login");
@@ -70,7 +87,7 @@ public class viewLogin {
                     frame.dispose();
                     JOptionPane.showMessageDialog(null,result);
                     //masukin tujuan dibawah
-                    if (tipeUser.equals("customers")) {
+                    if (tipeUser.equals("user")) {
                         new MenuClient();                        
                     } else if(tipeUser.equals("admin")) {
                         new MenuAdmin();
@@ -101,7 +118,8 @@ public class viewLogin {
                 new ChooseLogin();
             } 
         });
-
+        
+        frame.add(picFoto);
         frame.add(judul);
         frame.add(userNameLabel);
         frame.add(tfUserName);

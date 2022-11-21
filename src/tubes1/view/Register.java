@@ -58,8 +58,8 @@ public class Register {
         fieldNamaLengkap.setFont(font_1);
         
         JLabel labelAlamatLengkap = new JLabel("Alamat Lengkap: ");
-        labelNamaLengkap.setBounds(100, 100, 90, 40);
-        labelNamaLengkap.setFont(font_1);
+        labelAlamatLengkap.setBounds(100, 260, 90, 40);
+        labelAlamatLengkap.setFont(font_1);
 
         JTextField fieldAlamatLengkap = new JTextField();
         fieldAlamatLengkap.setBounds(240, 105, 240, 30);
@@ -98,6 +98,7 @@ public class Register {
         back.setBounds(100, 510, 180, 50);
         back.setFont(font_1);
         back.setCursor(new Cursor(Cursor.HAND_CURSOR));
+        
         
         frm.add(judul);
         frm.add(labelUsername);

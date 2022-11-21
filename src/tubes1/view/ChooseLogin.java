@@ -6,8 +6,15 @@ package tubes1.view;
 
 import java.awt.Cursor;
 import java.awt.Font;
+import java.awt.Image;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.awt.image.BufferedImage;
+import java.io.File;
+import java.io.IOException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import javax.imageio.ImageIO;
 import javax.swing.*;
 
 public class ChooseLogin implements ActionListener{
@@ -20,6 +27,17 @@ public class ChooseLogin implements ActionListener{
         frame.setLocationRelativeTo(null);
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         Font font1 = new Font("Serif", Font.PLAIN, 25);
+        
+        //img
+        BufferedImage foto = null;
+        try {
+            foto = ImageIO.read(new File("F:\\ITHB\\Semester 3\\PrakPBO\\Tubes\\TugasPrakPBO2\\img\\cake.png"));
+        } catch (IOException ex) {
+            Logger.getLogger(viewLogin.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        Image fixedFoto = foto.getScaledInstance(60, 60, Image.SCALE_DEFAULT);
+        JLabel picFoto = new JLabel(new ImageIcon(fixedFoto));
+        picFoto.setBounds(40,0,100,60);
         
         //label judul
         JLabel judul = new JLabel("Login Sebagai");
@@ -59,7 +77,8 @@ public class ChooseLogin implements ActionListener{
         buttonBack.setFont(font1);
         buttonBack.setCursor(new Cursor(Cursor.HAND_CURSOR));
         buttonBack.addActionListener(this);
-
+        
+        frame.add(picFoto);
         frame.add(judul);
         frame.add(buttonAdmin);
         frame.add(buttonClient);
@@ -88,10 +107,13 @@ public class ChooseLogin implements ActionListener{
                 frame.dispose();
                 new viewLogin("kurir");
                 break;
-
-            case "Kembali":
+            case "Register":
                 frame.dispose();
                 new Register();
+                break;
+            case "Kembali":
+                frame.dispose();
+                new Main.Main();
                 break;
             default: 
                 break;

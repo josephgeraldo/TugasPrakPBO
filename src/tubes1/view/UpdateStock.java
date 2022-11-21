@@ -18,6 +18,7 @@ import java.util.logging.Logger;
 import javax.imageio.ImageIO;
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
+import javax.swing.JComboBox;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JOptionPane;
@@ -46,6 +47,12 @@ public class UpdateStock {
         barangLabel.setBounds(100, 100, 90, 40);
         barangLabel.setFont(font1);
         
+        String kategori[] = {"Kue", "Creator Account", "Business Account"};
+        JComboBox cbKategori = new JComboBox(kategori);
+        cbKategori.setBounds(180, 160, 310, 30);
+        cbKategori.setFont(font1);
+        
+        frame.add(cbKategori);
         frame.add(judul);
         frame.setLayout(null);
         frame.setVisible(true);

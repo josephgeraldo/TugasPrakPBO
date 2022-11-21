@@ -94,7 +94,7 @@ public class ChooseLogin implements ActionListener{
                 break;
             case "Kembali":
                 frame.dispose();
-                new ChooseLogin();
+                JOptionPane.showMessageDialog(null, "Terima Kasih Dan Sampai Jumpa");
                 break;
             default: 
                 break;

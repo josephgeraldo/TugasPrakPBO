@@ -9,10 +9,6 @@ import java.sql.SQLException;
 import tubes1.model.user;
 import tubes1.model.SingeltonProfile;
 
-/**
- *
- * @author user
- */
 public class Login {
     public String LoginController(String tipe, String userName, String pass) {
         DatabaseHandler conn = new DatabaseHandler();

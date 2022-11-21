@@ -20,7 +20,7 @@ public class ChooseLogin implements ActionListener{
         frame.setLocationRelativeTo(null);
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         Font font1 = new Font("Serif", Font.PLAIN, 25);
-
+        
         //label judul
         JLabel judul = new JLabel("Login Sebagai");
         judul.setBounds(130, 5, 500, 60);
@@ -88,10 +88,13 @@ public class ChooseLogin implements ActionListener{
                 frame.dispose();
                 new viewLogin("kurir");
                 break;
-
-            case "Kembali":
+            case "Register":
                 frame.dispose();
                 new Register();
+                break;
+            case "Kembali":
+                frame.dispose();
+                new ChooseLogin();
                 break;
             default: 
                 break;

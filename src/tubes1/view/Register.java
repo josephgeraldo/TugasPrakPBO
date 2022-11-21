@@ -2,11 +2,15 @@ package tubes1.view;
 
 import java.awt.Cursor;
 import java.awt.Font;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
+import javax.swing.JOptionPane;
 import javax.swing.JPasswordField;
 import javax.swing.JTextField;
+import tubes1.controler.RegisController;
 
 public class Register {
 
@@ -15,33 +19,34 @@ public class Register {
     }
 
     public Register() {
+        RegisController regis = new RegisController();
         JFrame frm = new JFrame("Registrasi Client");
-        frm.setSize(500, 400);
+        frm.setSize(600, 700);
         frm.setLocationRelativeTo(null);
         frm.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        Font font_1 = new Font("Serif", Font.PLAIN, 15);
+        Font font_1 = new Font("Serif", Font.PLAIN, 12);
 
         JLabel judul = new JLabel("Registrasi Client");
         judul.setBounds(200, 10, 300, 60);
         judul.setFont(new Font("Serif", Font.BOLD, 20));
 
-        JLabel labelUsername = new JLabel("Username");
-        labelUsername.setBounds(100, 100, 90, 50);
+        JLabel labelUsername = new JLabel("Username: ");
+        labelUsername.setBounds(100, 135, 90, 50);
         labelUsername.setFont(font_1);
 
         JTextField fieldUsername = new JTextField();
         fieldUsername.setBounds(240, 145, 240, 30);
         fieldUsername.setFont(font_1);
 
-        JLabel labelPass = new JLabel("Password");
+        JLabel labelPass = new JLabel("Password: ");
         labelPass.setBounds(100, 180, 90, 40);
         labelPass.setFont(font_1);
 
         JPasswordField fieldPass = new JPasswordField();
         fieldPass.setBounds(240, 185, 240, 30);
         fieldPass.setFont(font_1);
-                
-        JLabel labelNoTelp = new JLabel("Telepon");
+
+        JLabel labelNoTelp = new JLabel("Nomor Telepon: ");
         labelNoTelp.setBounds(100, 220, 90, 40);
         labelNoTelp.setFont(font_1);
 
@@ -56,32 +61,32 @@ public class Register {
         JTextField fieldNamaLengkap = new JTextField();
         fieldNamaLengkap.setBounds(240, 105, 240, 30);
         fieldNamaLengkap.setFont(font_1);
-        
+
         JLabel labelAlamatLengkap = new JLabel("Alamat Lengkap: ");
-        labelNamaLengkap.setBounds(100, 100, 90, 40);
-        labelNamaLengkap.setFont(font_1);
+        labelAlamatLengkap.setBounds(100, 280, 90, 40);
+        labelAlamatLengkap.setFont(font_1);
 
         JTextField fieldAlamatLengkap = new JTextField();
-        fieldAlamatLengkap.setBounds(240, 105, 240, 30);
+        fieldAlamatLengkap.setBounds(240, 280, 240, 30);
         fieldAlamatLengkap.setFont(font_1);
-        
-        JLabel labelKota = new JLabel("Kota");
-        labelKota.setBounds(100, 380, 90, 40);
+
+        JLabel labelKota = new JLabel("Kota: ");
+        labelKota.setBounds(100, 320, 90, 40);
         labelKota.setFont(font_1);
 
         JTextField fieldKota = new JTextField();
-        fieldKota.setBounds(240, 385, 240, 30);
-        fieldKota.setFont(font_1);       
+        fieldKota.setBounds(240, 320, 240, 30);
+        fieldKota.setFont(font_1);
 
-        JLabel labelProvinsi = new JLabel("Provinsi");
+        JLabel labelProvinsi = new JLabel("Provinsi: ");
         labelProvinsi.setBounds(100, 420, 90, 40);
         labelProvinsi.setFont(font_1);
 
         JTextField fieldProvinsi = new JTextField();
         fieldProvinsi.setBounds(240, 425, 240, 30);
         fieldProvinsi.setFont(font_1);
-        
-        JLabel labelKodePost = new JLabel("Kode Pos");
+
+        JLabel labelKodePost = new JLabel("Kode Post: ");
         labelKodePost.setBounds(100, 460, 90, 40);
         labelKodePost.setFont(font_1);
 
@@ -93,17 +98,34 @@ public class Register {
         submit.setBounds(300, 510, 180, 50);
         submit.setFont(font_1);
         submit.setCursor(new Cursor(Cursor.HAND_CURSOR));
-        
+        submit.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent ae) {
+                if (fieldNamaLengkap.getText().isEmpty() || fieldUsername.getText().isEmpty() || fieldKodePost.getText().equals("") || fieldTelepon.getText().isEmpty() || fieldAlamatLengkap.getText().isEmpty() || fieldKota.getText().isEmpty() || fieldProvinsi.getText().isEmpty()) {
+                    JOptionPane.showMessageDialog(null, "Semua kolom harus diisi!");
+                } else {
+                    JOptionPane.showMessageDialog(null, regis.register(fieldNamaLengkap.getText(), fieldUsername.getText(), fieldPass.getText(),fieldTelepon.getText(), fieldAlamatLengkap.getText(), fieldKota.getText(), fieldProvinsi.getText(), fieldKodePost.getText()));
+                    frm.dispose();
+                    new ChooseLogin();
+                }
+            }
+        });
         JButton back = new JButton("Back");
         back.setBounds(100, 510, 180, 50);
         back.setFont(font_1);
         back.setCursor(new Cursor(Cursor.HAND_CURSOR));
-        
+        back.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent ae) {
+                frm.dispose();
+                new ChooseLogin();
+            }
+        });
         frm.add(judul);
         frm.add(labelUsername);
         frm.add(fieldUsername);
         frm.add(labelPass);
-        frm.add(fieldPass);        
+        frm.add(fieldPass);
         frm.add(labelNoTelp);
         frm.add(fieldTelepon);
         frm.add(labelNamaLengkap);

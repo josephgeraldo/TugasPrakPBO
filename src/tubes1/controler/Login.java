@@ -17,16 +17,15 @@ public class Login {
         pass = Hasher.password(pass);
         try {
             java.sql.Statement stat = conn.con.createStatement();
-            ResultSet result = stat.executeQuery("select * from " + "user" + " where username='" + userName + "'");
+            ResultSet result = stat.executeQuery("select * from " + "user" + " where username ='" + userName + "'");
             
             if (result.next()) {
 
                 if (pass.equals(result.getString("password"))) {
                     if (tipe.equals(result.getString("tipe"))) {
                         return "Login Berhasil!";
-                    }else{
-                        return "Password Salah!";
                     }
+                    return "Password Salah!";
                 } else {
                     return "User tidak ditemukan!";
                 }

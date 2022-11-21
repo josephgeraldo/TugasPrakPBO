@@ -5,14 +5,16 @@
  */
 package Main;
 
-import View.Login;
-
+import tubes1.view.ChooseLogin;
 /**
  *
- * @author Cent
+ * @author User
  */
 public class Main {
     public static void main(String[] args) {
-        new Login();
+        new Main();
+    }
+    public Main(){
+        new ChooseLogin();
     }
 }

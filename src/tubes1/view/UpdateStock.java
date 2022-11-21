@@ -47,11 +47,21 @@ public class UpdateStock {
         barangLabel.setBounds(100, 100, 90, 40);
         barangLabel.setFont(font1);
         
-        String kategori[] = {"Kue", "Creator Account", "Business Account"};
+        String kategori[] = {"Kue Ultah", "Kue Lemper", "Kue Mayo"};
         JComboBox cbKategori = new JComboBox(kategori);
         cbKategori.setBounds(180, 160, 310, 30);
         cbKategori.setFont(font1);
         
+        JLabel stockLabel = new JLabel("Tambah Stock");
+        stockLabel.setBounds(100, 200, 90, 40);
+        stockLabel.setFont(font1);
+        
+        JTextField stock = new JTextField();
+        stock.setBounds(180, 200, 240, 30);
+        stock.setFont(font1);
+        
+        frame.add(stock);
+        frame.add(stockLabel);
         frame.add(cbKategori);
         frame.add(judul);
         frame.setLayout(null);

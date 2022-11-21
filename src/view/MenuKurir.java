@@ -47,7 +47,7 @@ public class MenuKurir {
             @Override
             public void actionPerformed(ActionEvent ae) {
                 frame.dispose();
-                //
+                new TerimaPesanan();
             }
         });
         
@@ -59,7 +59,7 @@ public class MenuKurir {
             @Override
             public void actionPerformed(ActionEvent ae) {
                 frame.dispose();
-                //
+                new RiwayatPengiriman();
             }
         });
         
@@ -71,7 +71,7 @@ public class MenuKurir {
             @Override
             public void actionPerformed(ActionEvent ae) {
                 frame.dispose();
-                //
+                new KonfirmasiPengiriman();
             }
         });
         

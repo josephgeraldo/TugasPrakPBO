@@ -22,10 +22,6 @@ import javax.swing.JTextField;
  * @author user
  */
 public class Login {
-    public static void main(String[] args) {
-        new Login();
-    }
-    
     public Login(){
         Font font1 = new Font("Serif", Font.BOLD, 20);
         

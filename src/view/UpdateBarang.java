@@ -9,6 +9,12 @@ import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.SQLException;
+import java.sql.Statement;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 /**
  *
  * @author Cent
@@ -18,6 +24,7 @@ public class UpdateBarang {
     JTextField textField1,textField2,textField3,textField4;
     JLabel label1,label2,label3,label4;
     JButton button;
+
     public UpdateBarang(){
         frame = new JFrame("Update Barang");
         frame.getContentPane().setBackground(Color.lightGray);
@@ -52,7 +59,21 @@ public class UpdateBarang {
         button.addActionListener(new ActionListener(){
             @Override
             public void actionPerformed(ActionEvent ae) {
-                //code here
+                try{
+                    Class.forName("com.mysql.cj.jdbc.Driver");
+                    Connection con = DriverManager.getConnection("jdbc:mysql://localhost/tokokue","root","");
+                    int id = Integer.parseInt(textField1.getText());
+                    int stock = Integer.parseInt(textField4.getText());
+                    Statement stm = con.createStatement();
+                    String sql = "INSERT INTO barang VALUES("+id+",'"+textField2.getText()+"','"+textField3.getText()+"',"+stock+")";
+                    stm.executeUpdate(sql);
+                    JOptionPane.showMessageDialog(null, "Data Barang Berhasil Di Tambahkan");
+                    con.close();
+                }catch (SQLException se){
+                    se.printStackTrace();
+                } catch (ClassNotFoundException ex) {
+                    Logger.getLogger(AturPesanan.class.getName()).log(Level.SEVERE, null, ex);
+                }
             }
         });
         

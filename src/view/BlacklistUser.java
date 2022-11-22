@@ -18,6 +18,7 @@ import java.sql.Statement;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.*;
+import javax.swing.table.DefaultTableModel;
 
 /**
  *
@@ -27,7 +28,10 @@ public class BlacklistUser {
     JButton button1,button2;
     JLabel label;
     JTextField textField;
-    JFrame frame;
+    JFrame frame,frame1;
+    JTable table;
+    String from;
+
     public BlacklistUser(){
         frame = new JFrame("Blacklist User");
         frame.setSize(320,200);
@@ -66,17 +70,53 @@ public class BlacklistUser {
         button2.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent ae){
-                DatabaseHandler conn = new DatabaseHandler();
-                conn.connect();
+                String columnNames[] = {"id_user","username","password","no_telepon","nama_lengkap","alamat_lengkap","kota","provinsi","kode_post","tipe"};
+                frame1 = new JFrame("List User");
+                frame1.setSize(1000,400);
+                frame1.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+                DefaultTableModel model = new DefaultTableModel();
+                model.setColumnIdentifiers(columnNames);
+                table = new JTable();
+                table.setModel(model);
+                table.setAutoResizeMode(JTable.AUTO_RESIZE_ALL_COLUMNS);
+                table.setFillsViewportHeight(true);
+                JScrollPane scroll = new JScrollPane(table);
+                scroll.setHorizontalScrollBarPolicy(
+                        JScrollPane.HORIZONTAL_SCROLLBAR_AS_NEEDED);
+                scroll.setVerticalScrollBarPolicy(
+                        JScrollPane.VERTICAL_SCROLLBAR_AS_NEEDED);
+                String idUser,uname,pass,noTelp,namaLengkap,alamat,kota,prov,kodePos,tipeAcc;
                 try{
-                    java.sql.Statement stat = conn.con.createStatement();
-                    ResultSet result = stat.executeQuery("select * from user");
-                    while(result.next()){
-                        label.setText(result.getString("username"));
+                    Class.forName("com.mysql.cj.jdbc.Driver");
+                    Connection con = DriverManager.getConnection("jdbc:mysql://localhost/tokokue","root","");
+                    String sql = "SELECT * from user";
+                    PreparedStatement stm = con.prepareStatement(sql);
+                    ResultSet rs = stm.executeQuery();
+                    int i = 0;
+                    while(rs.next()){
+                        idUser = rs.getString("id_user");
+                        uname = rs.getString("username");
+                        pass = rs.getString("password");
+                        noTelp = rs.getString("no_telepon");
+                        namaLengkap = rs.getString("nama_lengkap");
+                        alamat = rs.getString("alamat_lengkap");
+                        kota = rs.getString("kota");
+                        prov = rs.getString("provinsi");
+                        kodePos = rs.getString("kode_post");
+                        tipeAcc = rs.getString("tipe");
+                        model.addRow(new Object[]{idUser,uname,pass,noTelp,namaLengkap,alamat,kota,prov,kodePos,tipeAcc});
+                        i++;
                     }
-                }catch(SQLException e) {
-                    e.printStackTrace();
+                    if (i < 1) {
+                        JOptionPane.showMessageDialog(null, "No Record Found", "Error", JOptionPane.ERROR_MESSAGE);
+                    }
+                } catch (Exception ex) {
+                    JOptionPane.showMessageDialog(null, ex.getMessage(), "Error", JOptionPane.ERROR_MESSAGE);
                 }
+                
+                frame1.add(scroll);
+                frame1.setLayout(null);
+                frame1.setVisible(true);
             }
         });
         

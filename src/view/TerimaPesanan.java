@@ -132,14 +132,10 @@ public class TerimaPesanan {
         frame.setSize(700, 800);
         frame.setVisible(true);
 
-        buttonUpdate.addActionListener(
-                new ActionListener() {
+        buttonUpdate.addActionListener(new ActionListener() {
             @Override
-            public void actionPerformed(ActionEvent ae
-            ) {
-
-                new AddDataKurir();
-
+            public void actionPerformed(ActionEvent ae) {
+                //
             }
         });
 //        String query = "";

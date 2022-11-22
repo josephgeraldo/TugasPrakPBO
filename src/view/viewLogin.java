@@ -43,6 +43,9 @@ public class viewLogin {
         frame.setLocationRelativeTo(null);
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         Font font1 = new Font("Serif", Font.PLAIN, 20);
+
+
+
         
         //img
         BufferedImage foto = null;
@@ -55,6 +58,7 @@ public class viewLogin {
         JLabel picFoto = new JLabel(new ImageIcon(fixedFoto));
         picFoto.setBounds(70,1,100,60);
         
+
         //label judul
         JLabel judul = new JLabel("Login");
         judul.setBounds(240, 5, 500, 60);
@@ -91,7 +95,6 @@ public class viewLogin {
                 if(result.equals("Login Berhasil!")){
                     frame.dispose();
                     JOptionPane.showMessageDialog(null,result);
-                    //masukin tujuan dibawah
                     if (tipeUser.equals("user")) {
                         new MenuClient();                        
                     } else if(tipeUser.equals("admin")) {

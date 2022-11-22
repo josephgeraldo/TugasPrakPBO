@@ -100,9 +100,9 @@ public class Register {
         labelTipe.setBounds(100, 510, 90, 40);
         labelTipe.setFont(font_1);
 
-        JRadioButton admin = new JRadioButton("Admin");
-        JRadioButton client = new JRadioButton("Client");
-        JRadioButton kurir = new JRadioButton("Kurir");
+        JRadioButton admin = new JRadioButton("admin");
+        JRadioButton client = new JRadioButton("client");
+        JRadioButton kurir = new JRadioButton("kurir");
         ButtonGroup bg = new ButtonGroup();
         bg.add(admin);
         bg.add(client);

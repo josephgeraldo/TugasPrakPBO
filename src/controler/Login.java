@@ -6,16 +6,16 @@ package controler;
 
 import java.sql.ResultSet;
 import java.sql.SQLException;
-import model.user;
+import model.*;
 
 public class Login {
 
-    public String LoginController(String tipe, String userName, String pass) {
+    public String LoginController(String tipe, String userName, String pass) throws SQLException {
         DatabaseHandler conn = new DatabaseHandler();
         conn.connect();
         String tempPass = pass;
         pass = Hasher.password(pass);
-        try {
+        try{
             java.sql.Statement stat = conn.con.createStatement();
             ResultSet result = stat.executeQuery("select * from " + "user" + " where username ='" + userName + "'");
             
@@ -33,8 +33,8 @@ public class Login {
             } else {
                 return "User tidak ditemukan!";
             }
-        } catch (SQLException e) {
-            e.printStackTrace();
+        }catch(SQLException e) {
+                e.printStackTrace();
             return "Error";
         }
     }

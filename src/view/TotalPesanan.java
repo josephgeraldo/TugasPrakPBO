@@ -24,6 +24,9 @@ public class TotalPesanan {
     JButton button;
     JRadioButton rButton1, rButton2;
     JFrame frame;
+    public static void main(String[] args) {
+        new TotalPesanan();
+    }
     public TotalPesanan(){
         frame = new JFrame("Total Pesanan");
         frame.setSize(250,170);

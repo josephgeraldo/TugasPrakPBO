@@ -94,7 +94,12 @@ public class MenuAdmin {
             @Override
             public void actionPerformed(ActionEvent ae) {
                 frame.dispose();
+
                 new UpdateBarang();
+
+                new UpdateStock();
+                //
+
             }
         });
 

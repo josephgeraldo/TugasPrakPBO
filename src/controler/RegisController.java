@@ -8,6 +8,9 @@ package controler;
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
 import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.sql.Statement;
 import java.sql.SQLException;
 
 public class RegisController {
@@ -43,7 +46,7 @@ public class RegisController {
             return "Berhasil melakukan registrasi";
             
         } catch (SQLException e) {
-            if (e.getMessage().contains("'username'")) {
+            if (!e.getMessage().contains("'username'")) {
                 return "Username sudah terdaftar!!!";
             } else if (e.getMessage().contains("'no_telepon'")) {
                 return "Nomor telepon sudah terdaftar!!!";

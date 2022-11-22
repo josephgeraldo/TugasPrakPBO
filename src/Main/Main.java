@@ -5,7 +5,7 @@
  */
 package Main;
 
-import view.ChooseLogin;
+import view.*;
 /**
  *
  * @author User

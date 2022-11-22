@@ -45,10 +45,6 @@ public class viewLogin {
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         Font font1 = new Font("Serif", Font.PLAIN, 20);
 
-
-
-        
-        //img
         BufferedImage foto = null;
         try {
             foto = ImageIO.read(new File("F:\\ITHB\\Semester 3\\PrakPBO\\Tubes\\TugasPrakPBO2\\img\\cake.png"));
@@ -93,11 +89,7 @@ public class viewLogin {
             @Override
             public void actionPerformed(ActionEvent ae) {
                 String result = null;
-                try {
-                    result = controller.LoginController(tipeUser,tfUserName.getText(),pass.getText());
-                } catch (SQLException ex) {
-                    Logger.getLogger(viewLogin.class.getName()).log(Level.SEVERE, null, ex);
-                }
+                result = controller.LoginController(tipeUser,tfUserName.getText(),pass.getText());
                 if(result.equals("Login Berhasil!")){
                     frame.dispose();
                     JOptionPane.showMessageDialog(null,result);

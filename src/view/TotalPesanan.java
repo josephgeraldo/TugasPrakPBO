@@ -42,7 +42,7 @@ public class TotalPesanan {
         rButton1.setBackground(Color.lightGray);
         rButton2.setBackground(Color.lightGray);
         button = new JButton("Submit");
-        button.setBounds(20,90,90,35);
+        button.setBounds(100,90,90,35);
         button.setCursor(new Cursor(Cursor.HAND_CURSOR));
         
         button.addActionListener(new ActionListener() {
@@ -70,6 +70,18 @@ public class TotalPesanan {
             }
         });
         
+        JButton back = new JButton("<");
+	back.setBounds(20,90,50,35);
+	back.setCursor(new Cursor(Cursor.HAND_CURSOR));
+	back.addActionListener(new ActionListener() {
+		@Override
+		public void actionPerformed(ActionEvent ae) {
+			frame.setVisible(false);
+			new MenuAdmin();
+		}
+	});
+        
+        frame.add(back);
         frame.add(rButton1);
         frame.add(rButton2);
         frame.add(button);

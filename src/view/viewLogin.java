@@ -28,6 +28,7 @@ import javax.swing.JOptionPane;
 import javax.swing.JPasswordField;
 import javax.swing.JTextField;
 import controler.*;
+import java.sql.SQLException;
 import model.Etalase;
 
 /**
@@ -91,7 +92,12 @@ public class viewLogin {
         submit.addActionListener(new ActionListener(){
             @Override
             public void actionPerformed(ActionEvent ae) {
-                String result = controller.LoginController(tipeUser,tfUserName.getText(),pass.getText());
+                String result = null;
+                try {
+                    result = controller.LoginController(tipeUser,tfUserName.getText(),pass.getText());
+                } catch (SQLException ex) {
+                    Logger.getLogger(viewLogin.class.getName()).log(Level.SEVERE, null, ex);
+                }
                 if(result.equals("Login Berhasil!")){
                     frame.dispose();
                     JOptionPane.showMessageDialog(null,result);

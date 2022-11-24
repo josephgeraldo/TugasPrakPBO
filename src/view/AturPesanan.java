@@ -21,7 +21,7 @@ import java.util.logging.Logger;
 public class AturPesanan {
     JLabel label,label1,label2,label3;
     JTextField textField,textField1,textField2,textField3;
-    JButton button;
+    JButton button,button1;
     JFrame frame;
     public AturPesanan(){
         frame = new JFrame("Atur Pesanan");
@@ -46,6 +46,9 @@ public class AturPesanan {
         button = new JButton("Submit");
         button.setBounds(115,190,80,35);
         button.setCursor(new Cursor(Cursor.HAND_CURSOR));
+        button1 = new JButton("<");
+        button1.setBounds(4,215,45,15);
+        button1.setCursor(new Cursor(Cursor.HAND_CURSOR));
         
         button.addActionListener(new ActionListener() {
             @Override
@@ -59,8 +62,12 @@ public class AturPesanan {
                         Statement stm = con.createStatement();
                         int cv = Integer.parseInt(textField3.getText());
                         int id = Integer.parseInt(textField.getText());
-                        String sql = "INSERT INTO pesanan VALUES("+id+",'"+textField1.getText()+"','"+textField2.getText()+"','"+cv+"')";
+                        String sql = "INSERT INTO pesanan VALUES("+id+",'"+textField1.getText()+"','"+textField2.getText()+"','"+cv+"',curdate())";
                         stm.executeUpdate(sql);
+                        textField.setText("");
+                        textField1.setText("");
+                        textField2.setText("");
+                        textField3.setText("");
                         JOptionPane.showMessageDialog(null, "Data Pesanan Berhasil Di Input");
                         con.close();
                     }catch (SQLException se){
@@ -82,6 +89,7 @@ public class AturPesanan {
         frame.add(textField2);
         frame.add(textField3);
         frame.add(button);
+        frame.add(button1);
         frame.setLayout(null);
         frame.setVisible(true);
     }

@@ -31,7 +31,6 @@ public class BlacklistUser {
     JFrame frame,frame1;
     JTable table;
     String from;
-
     public BlacklistUser(){
         frame = new JFrame("Blacklist User");
         frame.setSize(320,200);
@@ -52,10 +51,10 @@ public class BlacklistUser {
             public void actionPerformed(ActionEvent ae){
                 try {
                     Class.forName("com.mysql.cj.jdbc.Driver");
-                    String blackList = "Blacklist";
                     Connection con = DriverManager.getConnection("jdbc:mysql://localhost/tokokue","root","");
-                    String sql = "UPDATE user SET tipe = '%"+blackList+"%' where username = '%"+textField.getText()+"%'";
-                    PreparedStatement stm = con.prepareStatement(sql);
+                    String blackList = "blacklist";
+                    String sql = "UPDATE user SET tipe = '"+blackList+"' where username = '"+textField.getText()+"'";
+                    Statement stm = con.createStatement();
                     stm.executeUpdate(sql);
                     JOptionPane.showMessageDialog(null, "Username Berhasil Di Blacklist");
                     con.close();

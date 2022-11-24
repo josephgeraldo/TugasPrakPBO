@@ -24,7 +24,6 @@ public class UpdateBarang {
     JTextField textField1,textField2,textField3,textField4;
     JLabel label1,label2,label3,label4;
     JButton button;
-
     public UpdateBarang(){
         frame = new JFrame("Update Barang");
         frame.getContentPane().setBackground(Color.lightGray);
@@ -73,7 +72,7 @@ public class UpdateBarang {
                     se.printStackTrace();
                 } catch (ClassNotFoundException ex) {
                     Logger.getLogger(AturPesanan.class.getName()).log(Level.SEVERE, null, ex);
-                }
+                } 
             }
         });
         
@@ -87,7 +86,6 @@ public class UpdateBarang {
                 frame.setVisible(false);
             } 
         });
-        
         
         frame.add(back);
         frame.add(button);

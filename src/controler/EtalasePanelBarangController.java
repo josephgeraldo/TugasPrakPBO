@@ -25,7 +25,7 @@ public class EtalasePanelBarangController {
         DatabaseHandler conn = new DatabaseHandler();
         conn.connect();
         try {
-            PreparedStatement stat = conn.con.prepareStatement("UPDATE barang SET " + pointer + " =  ? WHERE barang_id = ?");
+            PreparedStatement stat = conn.con.prepareStatement("UPDATE produk SET " + pointer + " =  ? WHERE barang_id = ?");
             stat.setInt(1, stokBaru);
             stat.setInt(2, id);
             stat.executeUpdate();

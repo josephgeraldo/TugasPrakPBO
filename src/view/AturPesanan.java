@@ -46,9 +46,16 @@ public class AturPesanan {
         button = new JButton("Submit");
         button.setBounds(115,190,80,35);
         button.setCursor(new Cursor(Cursor.HAND_CURSOR));
-        button1 = new JButton("<");
-        button1.setBounds(4,215,45,15);
-        button1.setCursor(new Cursor(Cursor.HAND_CURSOR));
+        JButton back = new JButton("<");
+	back.setBounds(5,200,50,20);
+	back.setCursor(new Cursor(Cursor.HAND_CURSOR));
+	back.addActionListener(new ActionListener() {
+		@Override
+		public void actionPerformed(ActionEvent ae) {
+			frame.setVisible(false);
+			new MenuAdmin();
+		}
+	});
         
         button.addActionListener(new ActionListener() {
             @Override
@@ -89,7 +96,7 @@ public class AturPesanan {
         frame.add(textField2);
         frame.add(textField3);
         frame.add(button);
-        frame.add(button1);
+        frame.add(back);
         frame.setLayout(null);
         frame.setVisible(true);
     }

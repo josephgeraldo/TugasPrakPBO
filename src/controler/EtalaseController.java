@@ -30,7 +30,7 @@ public class EtalaseController {
         panel = new JPanel();
         panel.setPreferredSize(new Dimension(600, 600));
         panel.setLayout(new GridLayout(2, 2));
-        for (int i = 0; i < 4; i++) {
+        for (int i = 0; i < 3; i++) {
             controller[i] = new EtalasePanelBarangController();
             JPanel temp = controller[i].getPanelBarang(iterasi + i);
             panel.add(temp);
@@ -86,10 +86,10 @@ public class EtalaseController {
             @Override
             public void actionPerformed(ActionEvent e) {
                 ArrayList<produk> p = SingeltonProduk.getInstance().getListProduk();
-                if (p.size() - (iterasi + 4) <= 4) {
-                    iterasi = p.size() - 4;
+                if (p.size() - (iterasi + 3) <= 3) {
+                    iterasi = p.size() - 3;
                 } else {
-                    iterasi += 4;
+                    iterasi += 3;
                 }
                 frame.remove(panelListBarang);
                 panelListBarang = getPanel(iterasi);
@@ -104,10 +104,10 @@ public class EtalaseController {
         prev.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                if (iterasi - 4 < 0) {
+                if (iterasi - 3 < 0) {
                     iterasi = 0;
                 } else {
-                    iterasi -= 4;
+                    iterasi -= 3;
                 }
                 frame.remove(panelListBarang);
                 panelListBarang = getPanel(iterasi);

@@ -19,14 +19,14 @@ public class SingeltonProdukControler {
 
     public void addProdukToSingleton() {
         produkS.reset();
-        DatabaseHandler c = new DatabaseHandler();
+        DatabaseHandler con = new DatabaseHandler();
 
         try {
-            c.connect();
+            con.connect();
 
             PreparedStatement stmt;
-            String query = "SELECT * FROM barang";
-            stmt = c.con.prepareStatement(query);
+            String query = "SELECT * FROM produk";
+            stmt = con.con.prepareStatement(query);
             ResultSet result = stmt.executeQuery();
             while (result.next()) {
                 int id = result.getInt("barang_id");
@@ -38,7 +38,7 @@ public class SingeltonProdukControler {
                 produkS.addProduk(Produk);
             }
 
-            c.disconnect();
+            con.disconnect();
         } catch (Exception e) {
         }
 

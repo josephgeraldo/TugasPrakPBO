@@ -9,7 +9,8 @@ package model;
  * @author user
  */
 public enum statusPengiriman {
-    MENGAMBIL_BARANG,
+    PENGEMASAN,
+    MENCARI_KURIR,
     DALAM_PERJALANAN,
     SUDAH_SAMPAI
 }

@@ -21,6 +21,7 @@ public class Register {
     }
 
     public Register() {
+
         RegisController regis = new RegisController();
         JFrame frm = new JFrame("Registrasi Client");
         frm.setSize(600, 700);

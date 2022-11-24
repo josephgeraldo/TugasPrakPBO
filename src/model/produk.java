@@ -10,11 +10,11 @@ package model;
  */
 public class produk {
 
-    int id;
-    String nama_barang;
-    double berat;
-    double harga;
-    int stock;
+    private int id;
+    private String nama_barang;
+    private double berat;
+    private double harga;
+    private int stock;
 
     public produk(int id, String nama_barang, double berat, double harga, int stock) {
         this.id = id;

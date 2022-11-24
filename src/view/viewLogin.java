@@ -27,8 +27,7 @@ import javax.swing.JLabel;
 import javax.swing.JOptionPane;
 import javax.swing.JPasswordField;
 import javax.swing.JTextField;
-import controler.*;
-import model.Etalase;
+
 
 /**
  *
@@ -43,18 +42,18 @@ public class viewLogin {
         frame.setLocationRelativeTo(null);
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         Font font1 = new Font("Serif", Font.PLAIN, 20);
+
+//        BufferedImage foto = null;
+//        try {
+//            foto = ImageIO.read(new File("F:\\ITHB\\Semester 3\\PrakPBO\\Tubes\\TugasPrakPBO2\\img\\cake.png"));
+//        } catch (IOException ex) {
+//            Logger.getLogger(viewLogin.class.getName()).log(Level.SEVERE, null, ex);
+//        }
+//        Image fixedFoto = foto.getScaledInstance(60, 60, Image.SCALE_DEFAULT);
+//        JLabel picFoto = new JLabel(new ImageIcon(fixedFoto));
+//        picFoto.setBounds(70,1,100,60);
         
-        //img
-        BufferedImage foto = null;
-        try {
-            foto = ImageIO.read(new File("F:\\ITHB\\Semester 3\\PrakPBO\\Tubes\\TugasPrakPBO2\\img\\cake.png"));
-        } catch (IOException ex) {
-            Logger.getLogger(viewLogin.class.getName()).log(Level.SEVERE, null, ex);
-        }
-        Image fixedFoto = foto.getScaledInstance(60, 60, Image.SCALE_DEFAULT);
-        JLabel picFoto = new JLabel(new ImageIcon(fixedFoto));
-        picFoto.setBounds(70,1,100,60);
-        
+
         //label judul
         JLabel judul = new JLabel("Login");
         judul.setBounds(240, 5, 500, 60);
@@ -87,12 +86,12 @@ public class viewLogin {
         submit.addActionListener(new ActionListener(){
             @Override
             public void actionPerformed(ActionEvent ae) {
-                String result = controller.LoginController(tipeUser,tfUserName.getText(),pass.getText());
+                String result = null;
+                result = controller.LoginController(tipeUser,tfUserName.getText(),pass.getText());
                 if(result.equals("Login Berhasil!")){
                     frame.dispose();
                     JOptionPane.showMessageDialog(null,result);
-                    //masukin tujuan dibawah
-                    if (tipeUser.equals("user")) {
+                    if (tipeUser.equals("client")) {
                         new MenuClient();                        
                     } else if(tipeUser.equals("admin")) {
                         new MenuAdmin();
@@ -124,7 +123,7 @@ public class viewLogin {
             } 
         });
         
-        frame.add(picFoto);
+//        frame.add(picFoto);
         frame.add(judul);
         frame.add(userNameLabel);
         frame.add(tfUserName);

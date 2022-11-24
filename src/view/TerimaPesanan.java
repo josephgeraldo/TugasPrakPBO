@@ -26,20 +26,20 @@ import javax.swing.JTextField;
 import javax.swing.table.DefaultTableModel;
 import javax.swing.table.TableColumn;
 import model.PengirimanEnum;
+import model.statusPengiriman;
 
 /**
  *
  * @author user
  */
-
 public class TerimaPesanan {
     static DatabaseHandler conn = new DatabaseHandler();
-    public TerimaPesanan(){
+    public TerimaPesanan() {
         PengirimanEnum kemas = PengirimanEnum.valueOf("PENGEMASAN");
         PengirimanEnum tunggu = PengirimanEnum.valueOf("MENUNGGU_KURIR");
         PengirimanEnum antar = PengirimanEnum.valueOf("DIANTAR");
-        PengirimanEnum sampai = PengirimanEnum.valueOf("SAMPAI");     
-        
+        PengirimanEnum sampai = PengirimanEnum.valueOf("SAMPAI");
+
         String columns[] = {"ID Brg", "Alamat", "Berat", "Jumlah", "Ukuran", "Warna", "Hrg Tot", "B.Kirim", "J.Bayar",
             "S.Bayar", "S.Kirim"};
 
@@ -68,10 +68,9 @@ public class TerimaPesanan {
         TableColumn eventColumn10 = table.getColumnModel().getColumn(9);
         eventColumn10.setWidth(40);
         JScrollPane pane = new JScrollPane(table);
-        
+
         conn.connect();
-        String query = "SELECT pesanan.id_pesanan";
-        
+        String query = "SELECT pesanan.barang_id, alamat.alamat, barang.berat, pesanan.jumlah, pesanan.ukuran, pesanan.warna, pesanan.harga_total, pesanan.biaya_pengiriman, pesanan.jenis_pembayaran, pesanan.status_pembayaran, pesanan.status_pengiriman FROM alamat INNER JOIN pesanan ON alamat.alamat_id = pesanan.pesanan_id INNER JOIN barang ON pesanan.barang_id = barang.barang_id";
         try {
             Statement stmt = conn.con.createStatement();
             ResultSet rs = stmt.executeQuery(query);
@@ -119,6 +118,7 @@ public class TerimaPesanan {
         } catch (SQLException e) {
             e.printStackTrace();
         }
+
         JFrame frame = new JFrame("View Pengiriman");
         JPanel panel = new JPanel();
 
@@ -134,29 +134,8 @@ public class TerimaPesanan {
 
         buttonUpdate.addActionListener(new ActionListener() {
             @Override
-            public void actionPerformed(ActionEvent ae) {
-                //
+            public void actionPerformed(ActionEvent ae) {   
             }
         });
-//        String query = "";
-//        Font font1 = new Font("Serif", Font.BOLD, 15);
-//        
-//        JFrame frame = new JFrame("Terima Pesanan Kue");
-//        frame.setSize(620, 300);
-//        frame.setLocationRelativeTo(null);
-//        frame.getContentPane().setBackground(Color.lightGray);
-//        frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-//        
-//        JLabel judul = new JLabel("Pesanan Kue");
-//        judul.setBounds(150, 10, 300, 60);
-//        judul.setFont(new Font("Serif", Font.BOLD, 50));
-//        
-//        JLabel pesananLabel = new JLabel("Pesanan Kue");
-//        pesananLabel.setBounds(80, 80, 200, 100);
-//        pesananLabel.setFont(font1);
-}
-//        frame.add(pesananLabel);
-//        frame.add(judul);
-//        frame.setLayout(null);
-//        frame.setVisible(true);
     }
+}

@@ -46,7 +46,7 @@ public class RegisController {
             return "Berhasil melakukan registrasi";
             
         } catch (SQLException e) {
-            if (e.getMessage().contains("'username'")) {
+            if (!e.getMessage().contains("'username'")) {
                 return "Username sudah terdaftar!!!";
             } else if (e.getMessage().contains("'no_telepon'")) {
                 return "Nomor telepon sudah terdaftar!!!";

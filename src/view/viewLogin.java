@@ -27,9 +27,7 @@ import javax.swing.JLabel;
 import javax.swing.JOptionPane;
 import javax.swing.JPasswordField;
 import javax.swing.JTextField;
-import controler.*;
-import java.sql.SQLException;
-import model.Etalase;
+
 
 /**
  *

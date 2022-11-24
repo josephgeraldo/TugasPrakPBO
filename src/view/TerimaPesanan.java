@@ -25,7 +25,7 @@ import javax.swing.JTable;
 import javax.swing.JTextField;
 import javax.swing.table.DefaultTableModel;
 import javax.swing.table.TableColumn;
-import model.PengirimanEnum;
+import model.statusPengiriman;
 
 /**
  *
@@ -35,12 +35,12 @@ import model.PengirimanEnum;
 public class TerimaPesanan {
     static DatabaseHandler conn = new DatabaseHandler();
     public TerimaPesanan(){
-        PengirimanEnum kemas = PengirimanEnum.valueOf("PENGEMASAN");
-        PengirimanEnum tunggu = PengirimanEnum.valueOf("MENUNGGU_KURIR");
-        PengirimanEnum antar = PengirimanEnum.valueOf("DIANTAR");
-        PengirimanEnum sampai = PengirimanEnum.valueOf("SAMPAI");     
+        statusPengiriman kemas = statusPengiriman.valueOf("PENGEMASAN");
+        statusPengiriman tunggu = statusPengiriman.valueOf("MENUNGGU_KURIR");
+        statusPengiriman antar = statusPengiriman.valueOf("DIANTAR");
+        statusPengiriman sampai = statusPengiriman.valueOf("SAMPAI");     
         
-        String columns[] = {"ID Brg", "Alamat", "Berat", "Jumlah", "Ukuran", "Warna", "Hrg Tot", "B.Kirim", "J.Bayar",
+        String columns[] = {"ID Brg", "Alamat", "Berat", "Jumlah", "Hrg Tot", "B.Kirim", "J.Bayar",
             "S.Bayar", "S.Kirim"};
 
         DefaultTableModel model = new DefaultTableModel(null, columns);
@@ -103,13 +103,13 @@ public class TerimaPesanan {
 
                 String status_kirim = rs.getString("status_pengiriman");
                 if (status_kirim.equals(kemas.ordinal())) {
-                    kemas = PengirimanEnum.PENGEMASAN;
+                    kemas = statusPengiriman.PENGEMASAN;
                 } else if (status_kirim.equals(tunggu.ordinal())) {
-                    tunggu = PengirimanEnum.MENUNGGU_KURIR;
+                    tunggu = statusPengiriman.MENCARI_KURIR;
                 } else if (status_kirim.equals(antar)) {
-                    antar = PengirimanEnum.MENUNGGU_KURIR;
+                    antar = statusPengiriman.DALAM_PERJALANAN;
                 } else if (status_kirim.equals(sampai)) {
-                    sampai = PengirimanEnum.SAMPAI;;
+                    sampai = statusPengiriman.SUDAH_SAMPAI;;
                 }
 
                 String[] baris = {barang, alamat, berat, jumlah, ukuran, warna, hargaT, biayaP, jns_bayar, status_bayar, status_kirim};

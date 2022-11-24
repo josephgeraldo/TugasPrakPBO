@@ -18,14 +18,13 @@ public class EtalasePanelBarangController {
 
     JSpinner jumlah;
     int stock;
-    int in;
-    String pointerDB = "";
+    String pointerDB ;
 
     public void updateDatabase(String pointer, int id, int stokBaru) {
         DatabaseHandler conn = new DatabaseHandler();
         conn.connect();
         try {
-            PreparedStatement stat = conn.con.prepareStatement("UPDATE produk SET " + pointer + " =  ? WHERE barang_id = ?");
+            PreparedStatement stat = conn.con.prepareStatement("UPDATE produk SET " + pointer + " =  ? WHERE id_produk = ?");
             stat.setInt(1, stokBaru);
             stat.setInt(2, id);
             stat.executeUpdate();
@@ -44,14 +43,14 @@ public class EtalasePanelBarangController {
         conn.connect();
         try {
             java.sql.Statement stat = conn.con.createStatement();
-            ResultSet result = stat.executeQuery("select * from barang");
+            ResultSet result = stat.executeQuery("select * from produk");
             while (result.next()) {
-                int id = result.getInt("barang_id");
-                Double berat = result.getDouble("berat");
-                String nama = result.getString("nama");
+                int id_produk = result.getInt("id_produk");
+                int berat = result.getInt("berat");
+                String nama = result.getString("nama_produk");
                 int stock = result.getInt("stock");
                 Double harga = result.getDouble("harga");
-                Produk = new produk(id, nama, berat, harga, stock);
+                Produk = new produk(id_produk, nama, berat, harga, stock);
                 SingeltonProduk.getInstance().addProduk(Produk);
             }
         } catch (SQLException e) {
@@ -104,7 +103,7 @@ public class EtalasePanelBarangController {
                     try {
                         SingletonKeranjang.getInstance().addBarang(Produk);
                         SingletonKeranjang.getInstance().addJumlah(jumlahBeli);
-                        updateDatabase(pointerDB, Produk.getId(), stock - jumlahBeli);
+                        updateDatabase(pointerDB, Produk.getId_produk(), stock - jumlahBeli);
                         updateStok(index);
                     } catch (Exception a) {
                         JOptionPane.showMessageDialog(null, "Maaf gagal menambahkan barang ke dalam keranjang");

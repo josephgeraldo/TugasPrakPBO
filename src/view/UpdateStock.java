@@ -25,6 +25,10 @@ import javax.swing.JOptionPane;
 import javax.swing.JPasswordField;
 import javax.swing.JTextField;
 import controler.*;
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.SQLException;
+import java.sql.Statement;
 
 /**
  *
@@ -33,6 +37,9 @@ import controler.*;
 
 public class UpdateStock {
     JFrame frame = new JFrame("Update Stock");
+    public static void main(String[] args) {
+        new UpdateStock();
+    }
     public UpdateStock(){
         frame.setSize(600, 380);
         frame.setLocationRelativeTo(null);
@@ -43,16 +50,15 @@ public class UpdateStock {
         judul.setBounds(200, 5, 500, 60);
         judul.setFont(new Font("Serif", Font.BOLD, 35));
         
-        JLabel barangLabel = new JLabel("Jenis Kue");
+        JLabel barangLabel = new JLabel("Nama Kue");
         barangLabel.setBounds(80, 90, 90, 40);
         barangLabel.setFont(font1);
         
-        String kategori[] = {"Kue Ultah", "Kue Lemper", "Kue Mayo"};
-        JComboBox cbKategori = new JComboBox(kategori);
-        cbKategori.setBounds(200, 100, 310, 30);
-        cbKategori.setFont(font1);
+        JTextField namaBarang = new JTextField();
+        namaBarang.setBounds(200, 100, 310, 30);
+        namaBarang.setFont(font1);
         
-        JLabel stockLabel = new JLabel("Tambah Stock");
+        JLabel stockLabel = new JLabel("Ubah Stock");
         stockLabel.setBounds(80, 180, 90, 40);
         stockLabel.setFont(font1);
         
@@ -66,8 +72,20 @@ public class UpdateStock {
         update.addActionListener(new ActionListener(){
             @Override
             public void actionPerformed(ActionEvent ae) {
-                frame.dispose();
-                
+                try{
+                    Class.forName("com.mysql.cj.jdbc.Driver");
+                    Connection con = DriverManager.getConnection("jdbc:mysql://localhost/tokokue","root","");
+                    int ubhStock = Integer.parseInt(stock.getText());
+                    Statement stm = con.createStatement();
+                    String sql = "UPDATE barang SET stock = '"+ubhStock+"' where nama_kue = '"+namaBarang.getText()+"'";
+                    stm.executeUpdate(sql);
+                    JOptionPane.showMessageDialog(null, "Stock Berhasil Di Update");
+                    con.close();
+                }catch (SQLException se){
+                    se.printStackTrace();
+                }catch (ClassNotFoundException ex) {
+                    Logger.getLogger(AturPesanan.class.getName()).log(Level.SEVERE, null, ex);
+                } 
             } 
         });
         
@@ -78,7 +96,7 @@ public class UpdateStock {
         back.addActionListener(new ActionListener(){
             @Override
             public void actionPerformed(ActionEvent ae) {
-                frame.dispose();
+                frame.setVisible(false);
                 new MenuAdmin();
             } 
         });
@@ -88,7 +106,7 @@ public class UpdateStock {
         frame.add(barangLabel);
         frame.add(stock);
         frame.add(stockLabel);
-        frame.add(cbKategori);
+        frame.add(namaBarang);
         frame.add(judul);
         frame.setLayout(null);
         frame.setVisible(true);

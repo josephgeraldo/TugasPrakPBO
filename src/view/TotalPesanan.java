@@ -9,7 +9,9 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.sql.Connection;
 import java.sql.DriverManager;
+import java.sql.PreparedStatement;
 import java.sql.ResultSet;
+import java.sql.ResultSetMetaData;
 import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.logging.Level;
@@ -24,9 +26,6 @@ public class TotalPesanan {
     JButton button;
     JRadioButton rButton1, rButton2;
     JFrame frame;
-    public static void main(String[] args) {
-        new TotalPesanan();
-    }
     public TotalPesanan(){
         frame = new JFrame("Total Pesanan");
         frame.setSize(250,170);
@@ -53,9 +52,11 @@ public class TotalPesanan {
                         Class.forName("com.mysql.cj.jdbc.Driver");
                         Connection con = DriverManager.getConnection("jdbc:mysql://localhost/tokokue","root","");
                         Statement stm = con.createStatement();
-                        String sql = "SELECT COUNT(id_pesanan) AS total from pesanan";
-                        ResultSet rs = stm.executeQuery(sql);
-                        int id = rs.getInt("total");
+                        ResultSet rs = stm.executeQuery("SELECT count(id_pesanan) as totalCount from pesanan where currTime = curdate()");
+                        int id = 0;
+                        if(rs.next()){
+                            id = rs.getInt("totalCount");
+                        }
                         JOptionPane.showMessageDialog(null, "Total : "+id);
                         con.close();
                     }catch (SQLException se){
@@ -64,8 +65,25 @@ public class TotalPesanan {
                         Logger.getLogger(AturPesanan.class.getName()).log(Level.SEVERE, null, ex);
                     }
                     
+                }else if(rButton2.isSelected()){
+                    try{
+                        Class.forName("com.mysql.cj.jdbc.Driver");
+                        Connection con = DriverManager.getConnection("jdbc:mysql://localhost/tokokue","root","");
+                        Statement stm = con.createStatement();
+                        ResultSet rs = stm.executeQuery("SELECT count(id_pesanan) as totalCount from pesanan where currTime >= curdate() - INTERVAL 7 DAY");
+                        int id = 0;
+                        if(rs.next()){
+                            id = rs.getInt("totalCount");
+                        }
+                        JOptionPane.showMessageDialog(null, "Total : "+id);
+                        con.close();
+                    }catch (SQLException se){
+                        se.printStackTrace();
+                    } catch (ClassNotFoundException ex) {
+                        Logger.getLogger(AturPesanan.class.getName()).log(Level.SEVERE, null, ex);
+                    }
                 }else{
-                    //print data perminggu
+                    JOptionPane.showMessageDialog(null, "SILAHKAN PILIH SALAH SATU");
                 }
             }
         });

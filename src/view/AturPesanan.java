@@ -23,9 +23,6 @@ public class AturPesanan {
     JTextField textField,textField1,textField2;
     JButton button,button1;
     JFrame frame;
-    public static void main(String[] args) {
-        new AturPesanan();
-    }
     public AturPesanan(){
         frame = new JFrame("Atur Pesanan");
         frame.setSize(320,270);

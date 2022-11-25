@@ -32,9 +32,6 @@ public class BlacklistUser {
     JTable table;
     String from;
     JScrollPane sp;
-    public static void main(String[] args) {
-        new BlacklistUser();
-    }
     public BlacklistUser(){
         frame = new JFrame("Blacklist User");
         frame.setSize(320,200);

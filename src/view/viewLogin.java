@@ -43,15 +43,15 @@ public class viewLogin {
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         Font font1 = new Font("Serif", Font.PLAIN, 20);
 
-//        BufferedImage foto = null;
-//        try {
-//            foto = ImageIO.read(new File("F:\\ITHB\\Semester 3\\PrakPBO\\Tubes\\TugasPrakPBO2\\img\\cake.png"));
-//        } catch (IOException ex) {
-//            Logger.getLogger(viewLogin.class.getName()).log(Level.SEVERE, null, ex);
-//        }
-//        Image fixedFoto = foto.getScaledInstance(60, 60, Image.SCALE_DEFAULT);
-//        JLabel picFoto = new JLabel(new ImageIcon(fixedFoto));
-//        picFoto.setBounds(70,1,100,60);
+        BufferedImage foto = null;
+        try {
+            foto = ImageIO.read(new File("F:\\ITHB\\Semester 3\\PrakPBO\\Tubes\\TugasPrakPBO2\\img\\cake.png"));
+        } catch (IOException ex) {
+            Logger.getLogger(viewLogin.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        Image fixedFoto = foto.getScaledInstance(60, 60, Image.SCALE_DEFAULT);
+        JLabel picFoto = new JLabel(new ImageIcon(fixedFoto));
+        picFoto.setBounds(70,1,100,60);
         
 
         //label judul
@@ -123,7 +123,7 @@ public class viewLogin {
             } 
         });
         
-//        frame.add(picFoto);
+        frame.add(picFoto);
         frame.add(judul);
         frame.add(userNameLabel);
         frame.add(tfUserName);

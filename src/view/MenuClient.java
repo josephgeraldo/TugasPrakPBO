@@ -84,7 +84,7 @@ public class MenuClient {
             @Override
             public void actionPerformed(ActionEvent ae) {
                 frame.dispose();
-                //
+                new HistoryPembelian();
             }
         });
         

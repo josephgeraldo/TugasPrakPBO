@@ -50,9 +50,10 @@ public class TotalPesanan {
                 if(rButton1.isSelected()){
                     try{
                         Class.forName("com.mysql.cj.jdbc.Driver");
-                        Connection con = DriverManager.getConnection("jdbc:mysql://localhost/tokokue","root","");
+                        Connection con = DriverManager.getConnection("jdbc:mysql://localhost/tokokue2","root","");
                         Statement stm = con.createStatement();
-                        ResultSet rs = stm.executeQuery("SELECT count(id_pesanan) as totalCount from pesanan where currTime = curdate()");
+                        String sql = "SELECT COUNT(pesanan_id) AS total from pesanan";
+                        ResultSet rs = stm.executeQuery("SELECT count(pesanan_id) as totalCount from pesanan where currTime = curdate()");
                         int id = 0;
                         if(rs.next()){
                             id = rs.getInt("totalCount");
@@ -70,7 +71,7 @@ public class TotalPesanan {
                         Class.forName("com.mysql.cj.jdbc.Driver");
                         Connection con = DriverManager.getConnection("jdbc:mysql://localhost/tokokue","root","");
                         Statement stm = con.createStatement();
-                        ResultSet rs = stm.executeQuery("SELECT count(id_pesanan) as totalCount from pesanan where currTime >= curdate() - INTERVAL 7 DAY");
+                        ResultSet rs = stm.executeQuery("SELECT count(pesanan_id) as totalCount from pesanan where currTime >= curdate() - INTERVAL 7 DAY");
                         int id = 0;
                         if(rs.next()){
                             id = rs.getInt("totalCount");

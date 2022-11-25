@@ -33,7 +33,7 @@ public class ChooseLogin implements ActionListener{
         //img
         BufferedImage foto = null;
         try {
-            foto = ImageIO.read(new File("F:\\ITHB\\Semester 3\\PrakPBO\\Tubes\\TugasPrakPBO2\\img\\cake.png"));
+            foto = ImageIO.read(new File("C:\\Users\\Cent\\Documents\\NetBeansProjects\\TugasPrakPBO\\img\\cake.png"));
         } catch (IOException ex) {
             Logger.getLogger(viewLogin.class.getName()).log(Level.SEVERE, null, ex);
         }

@@ -88,8 +88,8 @@ public class UpdateBarang {
         back.addActionListener(new ActionListener(){
             @Override
             public void actionPerformed(ActionEvent ae) {
+                frame.dispose();
                 new MenuAdmin();
-                frame.setVisible(false);
             } 
         });
         

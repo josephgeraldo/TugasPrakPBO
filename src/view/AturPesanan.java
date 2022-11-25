@@ -74,6 +74,14 @@ public class AturPesanan {
             }
         });
         
+        button1.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent ae){
+                frame.dispose();
+                new MenuAdmin();
+            }
+        });
+        
         frame.add(label);
         frame.add(label1);
         frame.add(label2);

@@ -95,7 +95,7 @@ public class TotalPesanan {
 	back.addActionListener(new ActionListener() {
 		@Override
 		public void actionPerformed(ActionEvent ae) {
-			frame.setVisible(false);
+			frame.dispose();
 			new MenuAdmin();
 		}
 	});

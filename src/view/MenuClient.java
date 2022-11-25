@@ -60,7 +60,7 @@ public class MenuClient {
             @Override
             public void actionPerformed(ActionEvent ae) {
                 frame.dispose();
-                //
+                new viewProfile();
             }
         });
         
@@ -72,7 +72,7 @@ public class MenuClient {
             @Override
             public void actionPerformed(ActionEvent ae) {
                 frame.dispose();
-                //
+                new StatusPembelian();
             }
         });
         

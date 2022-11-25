@@ -194,7 +194,7 @@ public class viewProfile {
             @Override
             public void actionPerformed(ActionEvent ae) {
                 frame.dispose();
-                new Order();
+                new MenuClient();
             }
         });
         //button show pass

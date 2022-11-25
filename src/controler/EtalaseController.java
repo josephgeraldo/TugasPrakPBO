@@ -114,8 +114,20 @@ public class EtalaseController {
                 refreshFrame();
             }
         });
+        
+        JButton back = new JButton("back");
+        back.setBounds(0, 0, 100, 50);
+        back.setFont(fontButton);
+        back.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                frame.dispose();
+                new MenuClient();
+            }
+        });
 
         //pengisian frame
+        frame.add(back);
         frame.add(panelJudul, BorderLayout.NORTH);
         frame.add(panelListBarang, BorderLayout.CENTER);
         frame.add(next, BorderLayout.EAST);

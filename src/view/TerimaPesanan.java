@@ -30,17 +30,21 @@ import model.statusPengiriman;
 
 /**
  *
- * @author user
+ * @author joseph
  */
 public class TerimaPesanan {
     static DatabaseHandler conn = new DatabaseHandler();
+    PengirimanEnum kemas = PengirimanEnum.valueOf("PENGEMASAN");
+    PengirimanEnum tunggu = PengirimanEnum.valueOf("MENUNGGU_KURIR");
+    PengirimanEnum antar = PengirimanEnum.valueOf("DIANTAR");
+    PengirimanEnum sampai = PengirimanEnum.valueOf("SAMPAI");
     public TerimaPesanan() {
         PengirimanEnum kemas = PengirimanEnum.valueOf("PENGEMASAN");
         PengirimanEnum tunggu = PengirimanEnum.valueOf("MENUNGGU_KURIR");
         PengirimanEnum antar = PengirimanEnum.valueOf("DIANTAR");
         PengirimanEnum sampai = PengirimanEnum.valueOf("SAMPAI");
 
-        String columns[] = {"IDPesanan", "IDProduk", "IDUser", "Berat", "Harga"};
+        String columns[] = {"IDPesanan", "IDProduk", "IDUser", "Berat", "Jumlah", "Harga", "StatusPengiriman"};
 
         DefaultTableModel model = new DefaultTableModel(null, columns);
         JTable table = new JTable(model);
@@ -56,10 +60,12 @@ public class TerimaPesanan {
         eventColumn4.setPreferredWidth(100);
         TableColumn eventColumn5 = table.getColumnModel().getColumn(4);
         eventColumn5.setPreferredWidth(100);
+        TableColumn eventColumn6 = table.getColumnModel().getColumn(5);
+        eventColumn6.setPreferredWidth(150);
         JScrollPane pane = new JScrollPane(table);
 
         conn.connect();
-        String query = "SELECT id_pesanan, id_produk, id_user, berat, jumlah, harga FROM pesanan";
+        String query = "SELECT * FROM pesanan";
         try {
             Statement stmt = conn.con.createStatement();
             ResultSet rs = stmt.executeQuery(query);
@@ -70,8 +76,20 @@ public class TerimaPesanan {
                 String berat = rs.getString("berat");
                 String jumlah = rs.getString("jumlah");
                 String harga = rs.getString("harga");
-
-                String[] baris = {id_pesanan, id_produk, id_user, berat, jumlah, harga};
+                String status_pengiriman = rs.getString("status_pengiriman");
+                
+                String status_kirim = rs.getString("status_pengiriman");
+                if (status_kirim.equals(kemas.ordinal())) {
+                    kemas = PengirimanEnum.PENGEMASAN;
+                } else if (status_kirim.equals(tunggu.ordinal())) {
+                    tunggu = PengirimanEnum.MENUNGGU_KURIR;
+                } else if (status_kirim.equals(antar)) {
+                    antar = PengirimanEnum.MENUNGGU_KURIR;
+                } else if (status_kirim.equals(sampai)) {
+                    sampai = PengirimanEnum.SAMPAI;;
+                }
+                
+                String[] baris = {id_pesanan, id_produk, id_user, berat, jumlah, harga, status_pengiriman};
                 model.addRow(baris);
             }
 
@@ -96,7 +114,7 @@ public class TerimaPesanan {
         buttonUpdate.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent ae) {   
-                
+                new AddDataKurir();
             }
         });
     }

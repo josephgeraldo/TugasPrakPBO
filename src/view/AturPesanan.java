@@ -57,7 +57,7 @@ public class AturPesanan {
                 }else{
                     try {
                         Class.forName("com.mysql.cj.jdbc.Driver");
-                        Connection con = DriverManager.getConnection("jdbc:mysql://localhost/tokokue2","root","");
+                        Connection con = DriverManager.getConnection("jdbc:mysql://localhost/tokokue","root","");
                         int id = Integer.parseInt(textField.getText());
                         Statement stm = con.createStatement();
                         String sql = "UPDATE pesanan SET status_pembayaran = '"+textField1.getText()+"', status_pengiriman = '"+textField2.getText()+"' where pesanan_id = '"+id+"'";

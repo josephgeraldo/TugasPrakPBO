@@ -98,8 +98,6 @@ public class MenuAdmin {
                 new UpdateBarang();
 
                 new UpdateStock();
-                //
-
             }
         });
 

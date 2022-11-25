@@ -34,15 +34,15 @@ import model.statusPengiriman;
  */
 public class TerimaPesanan {
     static DatabaseHandler conn = new DatabaseHandler();
-    PengirimanEnum kemas = PengirimanEnum.valueOf("PENGEMASAN");
-    PengirimanEnum tunggu = PengirimanEnum.valueOf("MENUNGGU_KURIR");
-    PengirimanEnum antar = PengirimanEnum.valueOf("DIANTAR");
-    PengirimanEnum sampai = PengirimanEnum.valueOf("SAMPAI");
+    statusPengiriman kemas = statusPengiriman.valueOf("PENGEMASAN");
+    statusPengiriman tunggu = statusPengiriman.valueOf("MENUNGGU_KURIR");
+    statusPengiriman antar = statusPengiriman.valueOf("DIANTAR");
+    statusPengiriman sampai = statusPengiriman.valueOf("SAMPAI");
     public TerimaPesanan() {
-        PengirimanEnum kemas = PengirimanEnum.valueOf("PENGEMASAN");
-        PengirimanEnum tunggu = PengirimanEnum.valueOf("MENUNGGU_KURIR");
-        PengirimanEnum antar = PengirimanEnum.valueOf("DIANTAR");
-        PengirimanEnum sampai = PengirimanEnum.valueOf("SAMPAI");
+        statusPengiriman kemas = statusPengiriman.valueOf("PENGEMASAN");
+        statusPengiriman tunggu = statusPengiriman.valueOf("MENUNGGU_KURIR");
+        statusPengiriman antar = statusPengiriman.valueOf("DIANTAR");
+        statusPengiriman sampai = statusPengiriman.valueOf("SAMPAI");
 
         String columns[] = {"IDPesanan", "IDUser", "Alamat", "IDProduk", "Jumlah", "Harga", "BiayaPengiriman", "JenisBayar", "StatusBayar","StatusPengiriman"};
 
@@ -104,13 +104,13 @@ public class TerimaPesanan {
                 String status_kirim = rs.getString("status_pengiriman");
                 status_kirim = status_kirim.toUpperCase();
                 if (status_kirim.equals(kemas.ordinal())) {
-                    kemas = PengirimanEnum.PENGEMASAN;
+                    kemas = statusPengiriman.PENGEMASAN;
                 } else if (status_kirim.equals(tunggu.ordinal())) {
-                    tunggu = PengirimanEnum.MENUNGGU_KURIR;
+                    tunggu = statusPengiriman.MENCARI_KURIR;
                 } else if (status_kirim.equals(antar)) {
-                    antar = PengirimanEnum.MENUNGGU_KURIR;
+                    antar = statusPengiriman.DALAM_PERJALANAN;
                 } else if (status_kirim.equals(sampai)) {
-                    sampai = PengirimanEnum.SAMPAI;;
+                    sampai = statusPengiriman.SUDAH_SAMPAI;;
                 }
                 
                 String[] baris = {id_pesanan, id_user, alamat, id_produk, jumlah, harga, biayaP, jns_bayar, status_bayar, status_kirim};
@@ -127,18 +127,30 @@ public class TerimaPesanan {
         JButton buttonUpdate = new JButton("AMBIL");
         buttonUpdate.setBounds(110, 460, 100, 40);
         
+        JButton back = new JButton("BACK");
+        back.setBounds(210, 460, 100, 40);
+        
         panel.add(pane);
+        frame.add(back);
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         frame.add(buttonUpdate);
         frame.add(panel);
         frame.add(panel);
         frame.setSize(700, 800);
         frame.setVisible(true);
-
+        
         buttonUpdate.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent ae) {   
                 new AddDataKurir();
+            }
+        });
+        
+        back.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent ae) {   
+                frame.dispose();
+                new MenuKurir();
             }
         });
     }

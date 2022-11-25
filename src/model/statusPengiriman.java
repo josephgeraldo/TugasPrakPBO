@@ -9,10 +9,7 @@ package model;
  * @author user
  */
 public enum statusPengiriman {
-    PENGEMASAN,
-    MENCARI_KURIR,
-    DALAM_PERJALANAN,
-    SUDAH_SAMPAI;
+    PENGEMASAN,MENCARI_KURIR,DALAM_PERJALANAN,SUDAH_SAMPAI;
     public String getString() {
         if (this == PENGEMASAN) {
             return "Pengemasan";

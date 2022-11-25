@@ -71,7 +71,7 @@ public class MenuKurir {
             @Override
             public void actionPerformed(ActionEvent ae) {
                 frame.dispose();
-//                new KonfirmasiPengiriman();
+                new KonfirmasiPengiriman();
             }
         });
         

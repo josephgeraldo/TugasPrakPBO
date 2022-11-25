@@ -50,7 +50,7 @@ public class TotalPesanan {
                 if(rButton1.isSelected()){
                     try{
                         Class.forName("com.mysql.cj.jdbc.Driver");
-                        Connection con = DriverManager.getConnection("jdbc:mysql://localhost/tokokue2","root","");
+                        Connection con = DriverManager.getConnection("jdbc:mysql://localhost/tokokue","root","");
                         Statement stm = con.createStatement();
                         String sql = "SELECT COUNT(pesanan_id) AS total from pesanan";
                         ResultSet rs = stm.executeQuery("SELECT count(pesanan_id) as totalCount from pesanan where currTime = curdate()");

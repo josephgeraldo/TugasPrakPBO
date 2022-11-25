@@ -1,35 +1,30 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
- */
+
 package model;
 
-/**
- *
- * @author user
- */
-public class konsumen extends user {
-    int id_user;
+import java.util.ArrayList;
 
-    public konsumen(int id_user, int user, String username, String password, String no_telp, String nama_lengkap, String alamat_lengkap, String kota, String provinsi, String kode_post) {
-        super(user, username, password, no_telp, nama_lengkap, alamat_lengkap, kota, provinsi, kode_post);
-        this.id_user = id_user;
+public class Customer extends user{
+    private String alamat;
+
+    public Customer(String alamat, int IDUser, String username, String password, String no_telp, String nama_lengkap, String alamat_lengkap, String kota, String provinsi, String kode_post, String tipe) {
+        super(IDUser, username, password, no_telp, nama_lengkap, alamat_lengkap, kota, provinsi, kode_post, tipe);
+        this.alamat = alamat;
     }
 
-    public int getId_user() {
-        return id_user;
+    public String getAlamat() {
+        return alamat;
     }
 
-    public void setId_user(int id_user) {
-        this.id_user = id_user;
+    public void setAlamat(String alamat) {
+        this.alamat = alamat;
     }
 
-    public int getUser() {
-        return user;
+    public int getIDUser() {
+        return IDUser;
     }
 
-    public void setUser(int user) {
-        this.user = user;
+    public void setIDUser(int IDUser) {
+        this.IDUser = IDUser;
     }
 
     public String getUsername() {
@@ -95,5 +90,16 @@ public class konsumen extends user {
     public void setKode_post(String kode_post) {
         this.kode_post = kode_post;
     }
+
+    public String getTipe() {
+        return tipe;
+    }
+
+    public void setTipe(String tipe) {
+        this.tipe = tipe;
+    }
+    
+    
+    
     
 }

@@ -11,19 +11,31 @@ import java.util.ArrayList;
  * @author user
  */
 public class pesanan extends user {
-    int id_pesanan;
-    int jumlah;
-    statusPembayaran statusPembayaran;
-    statusPengiriman statusPengiriman;
-    ArrayList<produk> produk;
+    private int id_pesanan;
+    private int customerId;
+    private int kurirId;
+    private int barangId;
+    private int alamatId;
+    private int jumlah;
+    private Double hargaTotal;
+    private Double biayaPengiriman;
+    private PembayaranEnum jenisPembayaran;
+    private boolean statusPembayaran;
+    private statusPengiriman statusPengiriman;
 
-    public pesanan(int id_pesanan, int jumlah, statusPembayaran statusPembayaran, statusPengiriman statusPengiriman, ArrayList<produk> produk, int user, String username, String password, String no_telp, String nama_lengkap, String alamat_lengkap, String kota, String provinsi, String kode_post) {
-        super(user, username, password, no_telp, nama_lengkap, alamat_lengkap, kota, provinsi, kode_post);
+    public pesanan(int id_pesanan, int customerId, int kurirId, int barangId, int alamatId, int jumlah, Double hargaTotal, Double biayaPengiriman, PembayaranEnum jenisPembayaran, boolean statusPembayaran, statusPengiriman statusPengiriman, int IDUser, String username, String password, String no_telp, String nama_lengkap, String alamat_lengkap, String kota, String provinsi, String kode_post, String tipe) {
+        super(IDUser, username, password, no_telp, nama_lengkap, alamat_lengkap, kota, provinsi, kode_post, tipe);
         this.id_pesanan = id_pesanan;
+        this.customerId = customerId;
+        this.kurirId = kurirId;
+        this.barangId = barangId;
+        this.alamatId = alamatId;
         this.jumlah = jumlah;
+        this.hargaTotal = hargaTotal;
+        this.biayaPengiriman = biayaPengiriman;
+        this.jenisPembayaran = jenisPembayaran;
         this.statusPembayaran = statusPembayaran;
         this.statusPengiriman = statusPengiriman;
-        this.produk = produk;
     }
 
     public int getId_pesanan() {
@@ -34,6 +46,38 @@ public class pesanan extends user {
         this.id_pesanan = id_pesanan;
     }
 
+    public int getCustomerId() {
+        return customerId;
+    }
+
+    public void setCustomerId(int customerId) {
+        this.customerId = customerId;
+    }
+
+    public int getKurirId() {
+        return kurirId;
+    }
+
+    public void setKurirId(int kurirId) {
+        this.kurirId = kurirId;
+    }
+
+    public int getBarangId() {
+        return barangId;
+    }
+
+    public void setBarangId(int barangId) {
+        this.barangId = barangId;
+    }
+
+    public int getAlamatId() {
+        return alamatId;
+    }
+
+    public void setAlamatId(int alamatId) {
+        this.alamatId = alamatId;
+    }
+
     public int getJumlah() {
         return jumlah;
     }
@@ -42,11 +86,35 @@ public class pesanan extends user {
         this.jumlah = jumlah;
     }
 
-    public statusPembayaran getStatusPembayaran() {
+    public Double getHargaTotal() {
+        return hargaTotal;
+    }
+
+    public void setHargaTotal(Double hargaTotal) {
+        this.hargaTotal = hargaTotal;
+    }
+
+    public Double getBiayaPengiriman() {
+        return biayaPengiriman;
+    }
+
+    public void setBiayaPengiriman(Double biayaPengiriman) {
+        this.biayaPengiriman = biayaPengiriman;
+    }
+
+    public PembayaranEnum getJenisPembayaran() {
+        return jenisPembayaran;
+    }
+
+    public void setJenisPembayaran(PembayaranEnum jenisPembayaran) {
+        this.jenisPembayaran = jenisPembayaran;
+    }
+
+    public boolean isStatusPembayaran() {
         return statusPembayaran;
     }
 
-    public void setStatusPembayaran(statusPembayaran statusPembayaran) {
+    public void setStatusPembayaran(boolean statusPembayaran) {
         this.statusPembayaran = statusPembayaran;
     }
 
@@ -58,20 +126,12 @@ public class pesanan extends user {
         this.statusPengiriman = statusPengiriman;
     }
 
-    public ArrayList<produk> getProduk() {
-        return produk;
+    public int getIDUser() {
+        return IDUser;
     }
 
-    public void setProduk(ArrayList<produk> produk) {
-        this.produk = produk;
-    }
-
-    public int getUser() {
-        return user;
-    }
-
-    public void setUser(int user) {
-        this.user = user;
+    public void setIDUser(int IDUser) {
+        this.IDUser = IDUser;
     }
 
     public String getUsername() {
@@ -136,6 +196,14 @@ public class pesanan extends user {
 
     public void setKode_post(String kode_post) {
         this.kode_post = kode_post;
+    }
+
+    public String getTipe() {
+        return tipe;
+    }
+
+    public void setTipe(String tipe) {
+        this.tipe = tipe;
     }
 
     

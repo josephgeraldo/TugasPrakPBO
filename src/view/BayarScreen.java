@@ -72,32 +72,6 @@ public class BayarScreen {
         bayar.setBounds(5, 210, 575, 20);
         bayar.setFont(font);
 
-        //input alamat
-        JLabel lblAlamat = new JLabel("Alamat Pengantaran : ");
-        lblAlamat.setBounds(50, 240, 200, 20);
-        lblAlamat.setFont(font);
-
-        Customer cus = (Customer) SingletonUser.getInstance().getUser();
-        ArrayList<Alamat> listAlamat = cus.getAlamat();
-        String[] listNamaAlamat = new String[listAlamat.size()];
-        for (int i = 0; i < listAlamat.size(); i++) {
-            listNamaAlamat[i] = listAlamat.get(i).getAlamatLengkap() + ", " + listAlamat.get(i).getKota() + " - " + listAlamat.get(i).getKodePos();
-        }
-        JComboBox alamat = new JComboBox(listNamaAlamat);
-        alamat.setBounds(275, 240, 275, 20);
-        alamat.setFont(font);
-        
-        JButton tambahAlamat = new JButton("Tambah Alamat");
-        tambahAlamat.setFont(font);
-        tambahAlamat.setBounds(275, 280, 275, 30);
-        tambahAlamat.addActionListener(new ActionListener(){
-            @Override
-            public void actionPerformed(ActionEvent ae) {
-                new TambahAlamat(listProduk, listUkuran,listJumlah);
-                frame.dispose();
-            }
-            
-        });
         //label metode bayar
         JLabel lblMetodeBayar = new JLabel("Metode Pembayaran : ");
         lblMetodeBayar.setBounds(50, 270, 200, 20);
@@ -193,10 +167,8 @@ public class BayarScreen {
                     } else {
                         metodeBayar = 4;
                     }
-                    int index = alamat.getSelectedIndex();
-                    Alamat alamatChosen = listAlamat.get(index);
                     BayarController c = new BayarController();
-                    boolean success = c.createPesanan(listProduk, listJumlah, metodeBayar, alamatChosen);
+                    boolean success = c.createPesanan(listProduk, listJumlah, metodeBayar);
                     if (success) {
                         frame.dispose();
                         new Order();
@@ -209,8 +181,6 @@ public class BayarScreen {
         frame.add(btnBayar);
         frame.add(mainPanel);
         frame.add(bayar);
-        frame.add(lblAlamat);
-        frame.add(alamat);
         frame.add(lblMetodeBayar);
         frame.add(lblNomor);
         frame.add(transfer);
@@ -219,7 +189,6 @@ public class BayarScreen {
         frame.add(gopay);
         frame.add(dana);
         frame.add(nomor);
-        frame.add(tambahAlamat);
         frame.setVisible(true);
     }
 }

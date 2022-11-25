@@ -10,26 +10,26 @@ package model;
  */
 public class produk {
 
-    private int id;
+    private int id_produk;
     private String nama_barang;
-    private double berat;
+    private int berat;
     private double harga;
     private int stock;
 
-    public produk(int id, String nama_barang, double berat, double harga, int stock) {
-        this.id = id;
+    public produk(int id_produk, String nama_barang, int berat, double harga, int stock) {
+        this.id_produk = id_produk;
         this.nama_barang = nama_barang;
         this.berat = berat;
         this.harga = harga;
         this.stock = stock;
     }
 
-    public int getId() {
-        return id;
+    public int getId_produk() {
+        return id_produk;
     }
 
-    public void setId(int id) {
-        this.id = id;
+    public void setId_produk(int id_produk) {
+        this.id_produk = id_produk;
     }
 
     public String getNama_barang() {
@@ -44,7 +44,7 @@ public class produk {
         return berat;
     }
 
-    public void setBerat(double berat) {
+    public void setBerat(int berat) {
         this.berat = berat;
     }
 

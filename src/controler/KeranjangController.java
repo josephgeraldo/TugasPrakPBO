@@ -16,9 +16,9 @@ public class KeranjangController {
         try{
             for (int i = 0; i < listProduk.size(); i++) {
                 int index = SingletonKeranjang.getInstance().getListProduk().indexOf(listProduk.get(i));
-                PreparedStatement stat = conn.con.prepareStatement("UPDATE barang SET stock =  ? WHERE barang_id = ?");
+                PreparedStatement stat = conn.con.prepareStatement("UPDATE produk SET stock =  ? WHERE id_produk = ?");
                 stat.setInt(1,listProduk.get(i).getStock());
-                stat.setInt(2,listProduk.get(i).getId());
+                stat.setInt(2,listProduk.get(i).getId_produk());
                 stat.executeUpdate();
                 EtalasePanelBarangController c = new EtalasePanelBarangController();
                 c.getProduk();

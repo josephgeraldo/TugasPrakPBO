@@ -9,7 +9,7 @@ package model;
  * @author user
  */
 public class user {
-    int user;
+    int IDUser;
     String username;
     String password;
     String no_telp;
@@ -18,9 +18,10 @@ public class user {
     String kota;
     String provinsi;
     String kode_post;
+    String tipe;
 
-    public user(int user, String username, String password, String no_telp, String nama_lengkap, String alamat_lengkap, String kota, String provinsi, String kode_post) {
-        this.user = user;
+    public user(int IDUser, String username, String password, String no_telp, String nama_lengkap, String alamat_lengkap, String kota, String provinsi, String kode_post, String tipe) {
+        this.IDUser = IDUser;
         this.username = username;
         this.password = password;
         this.no_telp = no_telp;
@@ -29,14 +30,15 @@ public class user {
         this.kota = kota;
         this.provinsi = provinsi;
         this.kode_post = kode_post;
+        this.tipe = tipe;
     }
 
-    public int getUser() {
-        return user;
+    public int getIDUser() {
+        return IDUser;
     }
 
-    public void setUser(int user) {
-        this.user = user;
+    public void setIDUser(int IDUser) {
+        this.IDUser = IDUser;
     }
 
     public String getUsername() {
@@ -102,4 +104,14 @@ public class user {
     public void setKode_post(String kode_post) {
         this.kode_post = kode_post;
     }
+
+    public String getTipe() {
+        return tipe;
+    }
+
+    public void setTipe(String tipe) {
+        this.tipe = tipe;
+    }
+
+    
 }

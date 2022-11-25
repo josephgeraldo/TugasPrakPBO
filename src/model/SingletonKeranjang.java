@@ -13,36 +13,26 @@ public class SingletonKeranjang {
         
     }
 
-    public static SingletonKeranjang getInstance() {
-        return instance;
-    }
-
-    public static void setInstance(SingletonKeranjang instance) {
-        SingletonKeranjang.instance = instance;
-    }
-
     public ArrayList<produk> getListProduk() {
         return listProduk;
     }
 
-    public void setListProduk(ArrayList<produk> listProduk) {
-        this.listProduk = listProduk;
-    }
 
     public ArrayList<Integer> getJumlah() {
         return jumlah;
     }
-
-    public void setJumlah(ArrayList<Integer> jumlah) {
-        this.jumlah = jumlah;
+    
+    public static SingletonKeranjang getInstance(){
+        if(instance == null){
+            instance = new SingletonKeranjang();
+        }
+        return instance;
     }
-
-    public int getLength() {
-        return length;
-    }
-
-    public void setLength(int length) {
-        this.length = length;
+    
+    public void reset(){
+        this.listProduk = new ArrayList<>();
+        this.jumlah = new ArrayList<>();
+        this.length = 0;
     }
     
     public void addLength(){
@@ -51,6 +41,10 @@ public class SingletonKeranjang {
     
     public void removeLength(){
         this.length--;
+    }
+    
+    public int getLength(){
+        return length;
     }
     
     public produk getProdukAt(int index) {

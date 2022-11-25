@@ -51,17 +51,6 @@ public class MenuClient {
             }
         });
         
-        JButton payment = new JButton("Payment");
-        payment.setBounds(340, 130, 150, 50);
-        payment.setFont(font1);
-        payment.setCursor(new Cursor(Cursor.HAND_CURSOR));
-        payment.addActionListener(new ActionListener(){
-            @Override
-            public void actionPerformed(ActionEvent ae) {
-                frame.dispose();
-                
-            }
-        });
         
         JButton updateA = new JButton("Update Akun");
         updateA.setBounds(110, 200, 150, 50);
@@ -71,7 +60,7 @@ public class MenuClient {
             @Override
             public void actionPerformed(ActionEvent ae) {
                 frame.dispose();
-                //
+                new viewProfile();
             }
         });
         
@@ -83,7 +72,7 @@ public class MenuClient {
             @Override
             public void actionPerformed(ActionEvent ae) {
                 frame.dispose();
-                //
+                new StatusPembelian();
             }
         });
         
@@ -99,23 +88,11 @@ public class MenuClient {
             }
         });
         
-        JButton keranjang = new JButton("Keranjang");
-        keranjang.setBounds(340, 270, 150, 50);
-        keranjang.setFont(font1);
-        keranjang.setCursor(new Cursor(Cursor.HAND_CURSOR));
-        keranjang.addActionListener(new ActionListener(){
-            @Override
-            public void actionPerformed(ActionEvent ae) {
-                frame.dispose();
-                //
-            }
-        });
         
-        frame.add(keranjang);
+       
         frame.add(history);
         frame.add(statusP);
         frame.add(updateA);
-        frame.add(payment);
         frame.add(order);
         frame.add(judul);
         frame.setLayout(null);

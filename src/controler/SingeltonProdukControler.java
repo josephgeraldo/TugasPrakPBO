@@ -29,9 +29,9 @@ public class SingeltonProdukControler {
             stmt = c.con.prepareStatement(query);
             ResultSet result = stmt.executeQuery();
             while (result.next()) {
-                int id = result.getInt("barang_id");
-                String nama_barang = result.getString("nama");
-                double berat = result.getDouble("berat");
+                int id = result.getInt("id_produk");
+                String nama_barang = result.getString("nama_produk");
+                int berat = result.getInt("berat");
                 double harga = result.getDouble("harga");
                 int stock = result.getInt("stock");
                 produk Produk = new produk(id, nama_barang, berat, harga, stock);

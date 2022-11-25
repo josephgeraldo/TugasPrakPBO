@@ -85,7 +85,7 @@ public class KeranjangScreen {
                     JOptionPane.showMessageDialog(null, "Belum ada barang yang dipilih");
                 } else {
                     frame.dispose();
-//                    new BayarScreen(listProduk,  listJumlah);
+                    new BayarScreen(listProduk,  listJumlah);
                 }
             }
         });

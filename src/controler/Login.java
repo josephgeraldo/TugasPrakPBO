@@ -6,6 +6,7 @@ package controler;
 
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import model.SingletonUser;
 import model.user;
 
 public class Login {
@@ -23,6 +24,16 @@ public class Login {
 
                 if (pass.equals(result.getString("password"))) {
                     if (tipe.equals(result.getString("tipe"))) {
+                        int id = result.getInt("id_user");
+                        String username = result.getString("username");
+                        String no_telp = result.getString("no_telepon");
+                        String nama_lengkap = result.getString("nama_lengkap");
+                        String alamat = result.getString("alamat_lengkap");
+                        String kota = result.getString("kota");
+                        String provinsi = result.getString("provinsi");
+                        String kode_post = result.getString("kode_post");
+                        user customer = new user( id,username,pass,no_telp,nama_lengkap,alamat, kota, provinsi, kode_post,tipe);
+                        SingletonUser.getInstance().setUser(customer);
                         return "Login Berhasil!";
                     }
                     return "Password Salah!";

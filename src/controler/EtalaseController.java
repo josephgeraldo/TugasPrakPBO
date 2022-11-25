@@ -46,8 +46,7 @@ public class EtalaseController {
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         frame.setSize(600, 700);
         frame.setLocationRelativeTo(null);
-        
-        
+
         //panel judul
         JPanel panelJudul = new JPanel();
         panelJudul.setPreferredSize(new Dimension(600, 100));
@@ -66,8 +65,8 @@ public class EtalaseController {
         buttonKeranjang.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                frame.dispose();
-                new KeranjangScreen();
+                    frame.dispose();
+                    new KeranjangScreen();
                 
             }
         });
@@ -116,7 +115,6 @@ public class EtalaseController {
             }
         });
 
-        
         //pengisian frame
         frame.add(panelJudul, BorderLayout.NORTH);
         frame.add(panelListBarang, BorderLayout.CENTER);

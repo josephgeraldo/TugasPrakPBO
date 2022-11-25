@@ -10,20 +10,31 @@ import java.util.ArrayList;
  *
  * @author user
  */
-public class pesanan extends user {
-    int id_pesanan;
-    int jumlah;
-    statusPembayaran statusPembayaran;
-    statusPengiriman statusPengiriman;
-    ArrayList<produk> produk;
+public class pesanan {
+    private int id_pesanan;
+    private int customerId;
+    private int kurirId;
+    private int barangId;
+    private String alamat_lengkap;
+    private int jumlah;
+    private Double hargaTotal;
+    private Double biayaPengiriman;
+    private PembayaranEnum jenisPembayaran;
+    private int statusPembayaran;
+    private statusPengiriman statusPengiriman;
 
-    public pesanan(int id_pesanan, int jumlah, statusPembayaran statusPembayaran, statusPengiriman statusPengiriman, ArrayList<produk> produk, int user, String username, String password, String no_telp, String nama_lengkap, String alamat_lengkap, String kota, String provinsi, String kode_post) {
-        super(user, username, password, no_telp, nama_lengkap, alamat_lengkap, kota, provinsi, kode_post);
+    public pesanan(int id_pesanan, int customerId, int kurirId, int barangId, String alamat_lengkap, int jumlah, Double hargaTotal, Double biayaPengiriman, PembayaranEnum jenisPembayaran, int statusPembayaran, statusPengiriman statusPengiriman) {
         this.id_pesanan = id_pesanan;
+        this.customerId = customerId;
+        this.kurirId = kurirId;
+        this.barangId = barangId;
+        this.alamat_lengkap = alamat_lengkap;
         this.jumlah = jumlah;
+        this.hargaTotal = hargaTotal;
+        this.biayaPengiriman = biayaPengiriman;
+        this.jenisPembayaran = jenisPembayaran;
         this.statusPembayaran = statusPembayaran;
         this.statusPengiriman = statusPengiriman;
-        this.produk = produk;
     }
 
     public int getId_pesanan() {
@@ -34,76 +45,28 @@ public class pesanan extends user {
         this.id_pesanan = id_pesanan;
     }
 
-    public int getJumlah() {
-        return jumlah;
+    public int getCustomerId() {
+        return customerId;
     }
 
-    public void setJumlah(int jumlah) {
-        this.jumlah = jumlah;
+    public void setCustomerId(int customerId) {
+        this.customerId = customerId;
     }
 
-    public statusPembayaran getStatusPembayaran() {
-        return statusPembayaran;
+    public int getKurirId() {
+        return kurirId;
     }
 
-    public void setStatusPembayaran(statusPembayaran statusPembayaran) {
-        this.statusPembayaran = statusPembayaran;
+    public void setKurirId(int kurirId) {
+        this.kurirId = kurirId;
     }
 
-    public statusPengiriman getStatusPengiriman() {
-        return statusPengiriman;
+    public int getBarangId() {
+        return barangId;
     }
 
-    public void setStatusPengiriman(statusPengiriman statusPengiriman) {
-        this.statusPengiriman = statusPengiriman;
-    }
-
-    public ArrayList<produk> getProduk() {
-        return produk;
-    }
-
-    public void setProduk(ArrayList<produk> produk) {
-        this.produk = produk;
-    }
-
-    public int getUser() {
-        return user;
-    }
-
-    public void setUser(int user) {
-        this.user = user;
-    }
-
-    public String getUsername() {
-        return username;
-    }
-
-    public void setUsername(String username) {
-        this.username = username;
-    }
-
-    public String getPassword() {
-        return password;
-    }
-
-    public void setPassword(String password) {
-        this.password = password;
-    }
-
-    public String getNo_telp() {
-        return no_telp;
-    }
-
-    public void setNo_telp(String no_telp) {
-        this.no_telp = no_telp;
-    }
-
-    public String getNama_lengkap() {
-        return nama_lengkap;
-    }
-
-    public void setNama_lengkap(String nama_lengkap) {
-        this.nama_lengkap = nama_lengkap;
+    public void setBarangId(int barangId) {
+        this.barangId = barangId;
     }
 
     public String getAlamat_lengkap() {
@@ -114,28 +77,52 @@ public class pesanan extends user {
         this.alamat_lengkap = alamat_lengkap;
     }
 
-    public String getKota() {
-        return kota;
+    public int getJumlah() {
+        return jumlah;
     }
 
-    public void setKota(String kota) {
-        this.kota = kota;
+    public void setJumlah(int jumlah) {
+        this.jumlah = jumlah;
     }
 
-    public String getProvinsi() {
-        return provinsi;
+    public Double getHargaTotal() {
+        return hargaTotal;
     }
 
-    public void setProvinsi(String provinsi) {
-        this.provinsi = provinsi;
+    public void setHargaTotal(Double hargaTotal) {
+        this.hargaTotal = hargaTotal;
     }
 
-    public String getKode_post() {
-        return kode_post;
+    public Double getBiayaPengiriman() {
+        return biayaPengiriman;
     }
 
-    public void setKode_post(String kode_post) {
-        this.kode_post = kode_post;
+    public void setBiayaPengiriman(Double biayaPengiriman) {
+        this.biayaPengiriman = biayaPengiriman;
+    }
+
+    public PembayaranEnum getJenisPembayaran() {
+        return jenisPembayaran;
+    }
+
+    public void setJenisPembayaran(PembayaranEnum jenisPembayaran) {
+        this.jenisPembayaran = jenisPembayaran;
+    }
+
+    public int getStatusPembayaran() {
+        return statusPembayaran;
+    }
+
+    public void setStatusPembayaran(int statusPembayaran) {
+        this.statusPembayaran = statusPembayaran;
+    }
+
+    public statusPengiriman getStatusPengiriman() {
+        return statusPengiriman;
+    }
+
+    public void setStatusPengiriman(statusPengiriman statusPengiriman) {
+        this.statusPengiriman = statusPengiriman;
     }
 
     

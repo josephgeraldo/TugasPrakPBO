@@ -42,7 +42,6 @@ public class AddDataKurir {
         label8.setBounds(10, 30, 300, 30);
         Font myFont5 = new Font("Arial Black", Font.BOLD, 28);
         label8.setFont(myFont5);
-        label8.setForeground(Color.BLUE);
         label8.setOpaque(true);
 
         label3.setText("Username");

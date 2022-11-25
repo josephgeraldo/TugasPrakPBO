@@ -44,7 +44,7 @@ public class TerimaPesanan {
         PengirimanEnum antar = PengirimanEnum.valueOf("DIANTAR");
         PengirimanEnum sampai = PengirimanEnum.valueOf("SAMPAI");
 
-        String columns[] = {"IDPesanan", "IDProduk", "IDUser", "Berat", "Jumlah", "Harga", "StatusPengiriman"};
+        String columns[] = {"IDPesanan", "IDUser", "Alamat", "IDProduk", "Jumlah", "Harga", "BiayaPengiriman", "JenisBayar", "StatusBayar","StatusPengiriman"};
 
         DefaultTableModel model = new DefaultTableModel(null, columns);
         JTable table = new JTable(model);
@@ -62,6 +62,14 @@ public class TerimaPesanan {
         eventColumn5.setPreferredWidth(100);
         TableColumn eventColumn6 = table.getColumnModel().getColumn(5);
         eventColumn6.setPreferredWidth(150);
+        TableColumn eventColumn7 = table.getColumnModel().getColumn(6);
+        eventColumn7.setPreferredWidth(150);
+        TableColumn eventColumn8 = table.getColumnModel().getColumn(7);
+        eventColumn8.setPreferredWidth(150);
+        TableColumn eventColumn9 = table.getColumnModel().getColumn(8);
+        eventColumn9.setPreferredWidth(150);
+        TableColumn eventColumn10 = table.getColumnModel().getColumn(9);
+        eventColumn10.setPreferredWidth(150);
         JScrollPane pane = new JScrollPane(table);
 
         conn.connect();
@@ -70,15 +78,31 @@ public class TerimaPesanan {
             Statement stmt = conn.con.createStatement();
             ResultSet rs = stmt.executeQuery(query);
             while (rs.next()) {
-                String id_pesanan = rs.getString("id_pesanan");
-                String id_produk = rs.getString("id_produk");
+                String id_pesanan = rs.getString("pesanan_id");
                 String id_user = rs.getString("id_user");
-                String berat = rs.getString("berat");
+                String alamat = rs.getString("alamat_lengkap");
+                String id_produk = rs.getString("id_produk");
                 String jumlah = rs.getString("jumlah");
-                String harga = rs.getString("harga");
-                String status_pengiriman = rs.getString("status_pengiriman");
+                String harga = rs.getString("harga_total");
+                String biayaP = rs.getString("biaya_pengiriman");
+                
+                String jns_bayar = rs.getString("jenis_pembayaran");
+                if (jns_bayar.equals("0")) {
+                    jns_bayar = "Transfer Bank";
+                } else if (jns_bayar.equals("1")) {
+                    jns_bayar = "COD";
+                } else if (jns_bayar.equals("2")) {
+                    jns_bayar = "OVO";
+                } else if (jns_bayar.equals("3")) {
+                    jns_bayar = "GOPAY";
+                } else if (jns_bayar.equals("4")) {
+                    jns_bayar = "DANA";
+                }
+                
+                String status_bayar = rs.getString("status_pembayaran");
                 
                 String status_kirim = rs.getString("status_pengiriman");
+                status_kirim = status_kirim.toUpperCase();
                 if (status_kirim.equals(kemas.ordinal())) {
                     kemas = PengirimanEnum.PENGEMASAN;
                 } else if (status_kirim.equals(tunggu.ordinal())) {
@@ -89,7 +113,7 @@ public class TerimaPesanan {
                     sampai = PengirimanEnum.SAMPAI;;
                 }
                 
-                String[] baris = {id_pesanan, id_produk, id_user, berat, jumlah, harga, status_pengiriman};
+                String[] baris = {id_pesanan, id_user, alamat, id_produk, jumlah, harga, biayaP, jns_bayar, status_bayar, status_kirim};
                 model.addRow(baris);
             }
 

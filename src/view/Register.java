@@ -15,9 +15,7 @@ import javax.swing.ButtonGroup;
 import javax.swing.JRadioButton;
 
 public class Register {
-
-    String tipe = " ";
-
+    String tipe = "";
     public static void main(String[] args) {
         new Register();
     }
